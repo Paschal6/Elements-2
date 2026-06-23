@@ -1,1497 +1,1451 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List of elements in the world</title>
-    <link href="My Favicon" rel="icon" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>List of elements in the world</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="icon.ico" type="image/x-icon" rel="icon">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --border: #dde2ea;
+  --border-strong: #c9d0db;
+  --text: #1b2330;
+  --muted: #5d6b7f;
+  --muted2: #8895a7;
+  --primary: #1a56db;
+  --primary-hover: #1443b0;
+  --radius: 14px;
+  --shadow: 0 4px 24px rgba(20, 33, 61, .07), 0 1px 3px rgba(20,33,61,.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+.topbar{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:30}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1180px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#1a56db,#3b82f6);color:white;display:grid;place-items:center;font-weight:800;font-size:14px}
+.brand h1{font-size:18px;font-weight:700}
+.brand p{font-size:12.5px;color:var(--muted);margin-top:1px}
+.page-head{padding:36px 0 20px}
+.page-head h2{font-size:32px;letter-spacing:-.022em;font-weight:800}
+.page-head p{color:var(--muted);margin-top:7px;font-size:14.8px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+.toolbar{padding:18px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;border-bottom:1px solid var(--border)}
+.search-group{display:flex;align-items:center;flex:1 1 420px;min-width:260px}
+.search-input-wrap{position:relative;flex:1}
+.search-input-wrap svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#8a96a7}
+.search-input{width:100%;padding:11px 14px 11px 40px;border:1px solid var(--border-strong);border-radius:10px 0 0 10px;font:500 14px 'Inter',sans-serif;color:var(--text);background:#fff;outline:none}
+.search-input:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,.18);position:relative;z-index:1}
+.search-btn{background:var(--primary);color:#fff;border:1px solid var(--primary);border-left:0;padding:11px 22px;border-radius:0 10px 10px 0;font:680 13.8px 'Inter',sans-serif;cursor:pointer;white-space:nowrap}
+.search-btn:hover{background:var(--primary-hover)}
+.clear-btn{background:#fff;border:1px solid var(--border-strong);color:var(--muted);padding:11px 14px;border-radius:10px;font:550 13.5px 'Inter',sans-serif;cursor:pointer}
+.clear-btn:hover{background:#f5f7fa}
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-left:auto}
+.filter-select{padding:10px 12px;border:1px solid var(--border-strong);border-radius:10px;background:#fff;font:500 13.3px 'Inter',sans-serif;color:var(--text);min-width:160px}
+.table-scroll{overflow:auto;max-height:72vh}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:13.8px}
+thead th{position:sticky;top:0;z-index:5;background:#f8f9fc;text-align:left;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.055em;color:#627089;padding:13px 14px;border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none}
+thead th:hover{color:#1b2330;background:#f1f4f9}
+thead th .sort{opacity:.45;margin-left:4px}
+thead th.sorted{color:var(--primary)}
+tbody td{padding:11px 14px;border-bottom:1px solid #edf0f4}
+tbody tr:nth-child(even){background:#fbfcfe}
+tbody tr:hover{background:#eef4ff}
+.symbol-cell{font-weight:750;font-size:15px;color:#1a56db}
+.name-cell{font-weight:600}
+.badge{display:inline-block;font-size:11.6px;font-weight:600;padding:3px 9px;border-radius:999px;background:#eef1f6;color:#48566a}
+.badge.gas{background:#e6f6f1;color:#0b6b4f}
+.badge.liquid{background:#e8efff;color:#1a3fb8}
+.badge.solid{background:#f1eefb;color:#5538a8}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;color:#334155}
+.right{text-align:right}
+.hidden{display:none !important}
+.table-footer{display:flex;justify-content:space-between;align-items:center;padding:13px 18px;border-top:1px solid var(--border);background:#fafbfe;border-radius:0 0 var(--radius) var(--radius);color:var(--muted);font-size:13.3px;flex-wrap:wrap;gap:10px}
+.table-footer strong{color:var(--text)}
+.btn{padding:8px 13px;border-radius:9px;border:1px solid var(--border-strong);background:#fff;font:550 13px 'Inter',sans-serif;cursor:pointer;color:var(--text)}
+.btn:hover{background:#f4f6f9}
+.btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}
+.hint{color:var(--muted2);font-size:12.6px;margin-top:12px}
+.no-results{text-align:center;padding:44px 20px;color:var(--muted);display:none}
+footer.site-footer{padding:36px 0 56px;text-align:center;color:#8794a6;font-size:12.8px}
+footer.site-footer a{color:#3b6fd8}
+@media(max-width:720px){.page-head h2{font-size:26px}.toolbar{flex-direction:column;align-items:stretch}.filters{margin-left:0;width:100%}.filter-select{flex:1}}
+</style>
 </head>
-
 <body>
+<div class="topbar">
+  <div class="topbar-inner container">
+    <div class="brand">
+      <div class="brand-mark">El</div>
+      <div><h1>Elements Database</h1><p>Professional periodic elements reference</p></div>
+    </div>
+    <div style="color:#5d6b7f;font-size:13.5px">118 elements</div>
+  </div>
+</div>
 
-    <div>
-        <h1>List of elements</h1><br />
+<main class="container">
+  <div class="page-head">
+    <h2>List of elements in the world</h2>
+    <p>A clean, searchable, sortable table of all 118 chemical elements with atomic properties.</p>
+  </div>
 
+  <div class="card">
+    <div class="toolbar">
+      <div class="search-group">
+        <div class="search-input-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="q" class="search-input" type="search" placeholder="Search by name, symbol, or atomic number…" autocomplete="off">
+        </div>
+        <button class="search-btn" id="searchBtn" type="button">Search</button>
+      </div>
+      <button class="clear-btn" id="clearBtn" type="button">Clear</button>
+      <div class="filters">
+        <select id="phaseFilter" class="filter-select">
+          <option value="">All phases</option>
+          <option value="solid">Solid</option>
+          <option value="liquid">Liquid</option>
+          <option value="gas">Gas</option>
+        </select>
+        <select id="categoryFilter" class="filter-select">
+          <option value="">All categories</option>
+          <option value="alkali metal">Alkali metal</option>
+          <option value="alkaline earth metal">Alkaline earth metal</option>
+          <option value="transition metal">Transition metal</option>
+          <option value="post-transition metal">Post-transition metal</option>
+          <option value="metalloid">Metalloid</option>
+          <option value="diatomic nonmetal">Diatomic nonmetal</option>
+          <option value="polyatomic nonmetal">Polyatomic nonmetal</option>
+          <option value="noble gas">Noble gas</option>
+          <option value="lanthanide">Lanthanide</option>
+          <option value="actinide">Actinide</option>
+        </select>
+      </div>
     </div>
 
-    <style>
+    <div class="table-scroll">
+      <table id="elementsTable">
+        <thead>
+          <tr>
+            <th data-sort="number">No. <span class="sort">↕</span></th>
+            <th data-sort="name">Element <span class="sort">↕</span></th>
+            <th data-sort="symbol">Symbol <span class="sort">↕</span></th>
+            <th data-sort="atomic_mass" class="right">Atomic Wt <span class="sort">↕</span></th>
+            <th data-sort="density" class="right">Density (g/cm³) <span class="sort">↕</span></th>
+            <th data-sort="melt" class="right">Melt °C <span class="sort">↕</span></th>
+            <th data-sort="boil" class="right">Boil °C <span class="sort">↕</span></th>
+            <th data-sort="phase">State <span class="sort">↕</span></th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+    <tr data-number="1" data-name="hydrogen" data-symbol="h" data-phase="gas" data-category="diatomic nonmetal">
+      <td>1</td>
+      <td class="name-cell">Hydrogen</td>
+      <td class="symbol-cell">H</td>
+      <td class="right mono">1.008</td>
+      <td class="right mono">0.0000899</td>
+      <td class="right mono">-259.2</td>
+      <td class="right mono">-252.9</td>
+      <td><span class="badge gas">Gas</span></td>
+    </tr>
+    <tr data-number="2" data-name="helium" data-symbol="he" data-phase="gas" data-category="noble gas">
+      <td>2</td>
+      <td class="name-cell">Helium</td>
+      <td class="symbol-cell">He</td>
+      <td class="right mono">4.0026</td>
+      <td class="right mono">0.0001786</td>
+      <td class="right mono">-272.2</td>
+      <td class="right mono">-268.9</td>
+      <td><span class="badge gas">Gas</span></td>
+    </tr>
+    <tr data-number="3" data-name="lithium" data-symbol="li" data-phase="solid" data-category="alkali metal">
+      <td>3</td>
+      <td class="name-cell">Lithium</td>
+      <td class="symbol-cell">Li</td>
+      <td class="right mono">6.94</td>
+      <td class="right mono">0.534</td>
+      <td class="right mono">180.5</td>
+      <td class="right mono">1329.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="4" data-name="beryllium" data-symbol="be" data-phase="solid" data-category="alkaline earth metal">
+      <td>4</td>
+      <td class="name-cell">Beryllium</td>
+      <td class="symbol-cell">Be</td>
+      <td class="right mono">9.0122</td>
+      <td class="right mono">1.85</td>
+      <td class="right mono">1286.8</td>
+      <td class="right mono">2468.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="5" data-name="boron" data-symbol="b" data-phase="solid" data-category="metalloid">
+      <td>5</td>
+      <td class="name-cell">Boron</td>
+      <td class="symbol-cell">B</td>
+      <td class="right mono">10.81</td>
+      <td class="right mono">2.08</td>
+      <td class="right mono">2075.8</td>
+      <td class="right mono">3926.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="6" data-name="carbon" data-symbol="c" data-phase="solid" data-category="polyatomic nonmetal">
+      <td>6</td>
+      <td class="name-cell">Carbon</td>
+      <td class="symbol-cell">C</td>
+      <td class="right mono">12.011</td>
+      <td class="right mono">1.821</td>
+      <td class="right mono">—</td>
+      <td class="right mono">—</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="7" data-name="nitrogen" data-symbol="n" data-phase="gas" data-category="diatomic nonmetal">
+      <td>7</td>
+      <td class="name-cell">Nitrogen</td>
+      <td class="symbol-cell">N</td>
+      <td class="right mono">14.007</td>
+      <td class="right mono">0.001251</td>
+      <td class="right mono">-210</td>
+      <td class="right mono">-195.8</td>
+      <td><span class="badge gas">Gas</span></td>
+    </tr>
+    <tr data-number="8" data-name="oxygen" data-symbol="o" data-phase="gas" data-category="diatomic nonmetal">
+      <td>8</td>
+      <td class="name-cell">Oxygen</td>
+      <td class="symbol-cell">O</td>
+      <td class="right mono">15.999</td>
+      <td class="right mono">0.001429</td>
+      <td class="right mono">-218.8</td>
+      <td class="right mono">-183</td>
+      <td><span class="badge gas">Gas</span></td>
+    </tr>
+    <tr data-number="9" data-name="fluorine" data-symbol="f" data-phase="gas" data-category="diatomic nonmetal">
+      <td>9</td>
+      <td class="name-cell">Fluorine</td>
+      <td class="symbol-cell">F</td>
+      <td class="right mono">18.9984</td>
+      <td class="right mono">0.001696</td>
+      <td class="right mono">-219.7</td>
+      <td class="right mono">-188.1</td>
+      <td><span class="badge gas">Gas</span></td>
+    </tr>
+    <tr data-number="10" data-name="neon" data-symbol="ne" data-phase="gas" data-category="noble gas">
+      <td>10</td>
+      <td class="name-cell">Neon</td>
+      <td class="symbol-cell">Ne</td>
+      <td class="right mono">20.1798</td>
+      <td class="right mono">0.0009002</td>
+      <td class="right mono">-248.6</td>
+      <td class="right mono">-246</td>
+      <td><span class="badge gas">Gas</span></td>
+    </tr>
+    <tr data-number="11" data-name="sodium" data-symbol="na" data-phase="solid" data-category="alkali metal">
+      <td>11</td>
+      <td class="name-cell">Sodium</td>
+      <td class="symbol-cell">Na</td>
+      <td class="right mono">22.9898</td>
+      <td class="right mono">0.968</td>
+      <td class="right mono">97.8</td>
+      <td class="right mono">882.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="12" data-name="magnesium" data-symbol="mg" data-phase="solid" data-category="alkaline earth metal">
+      <td>12</td>
+      <td class="name-cell">Magnesium</td>
+      <td class="symbol-cell">Mg</td>
+      <td class="right mono">24.305</td>
+      <td class="right mono">1.738</td>
+      <td class="right mono">649.9</td>
+      <td class="right mono">1089.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="13" data-name="aluminium" data-symbol="al" data-phase="solid" data-category="post-transition metal">
+      <td>13</td>
+      <td class="name-cell">Aluminium</td>
+      <td class="symbol-cell">Al</td>
+      <td class="right mono">26.9815</td>
+      <td class="right mono">2.7</td>
+      <td class="right mono">660.3</td>
+      <td class="right mono">2469.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="14" data-name="silicon" data-symbol="si" data-phase="solid" data-category="metalloid">
+      <td>14</td>
+      <td class="name-cell">Silicon</td>
+      <td class="symbol-cell">Si</td>
+      <td class="right mono">28.085</td>
+      <td class="right mono">2.329</td>
+      <td class="right mono">1413.8</td>
+      <td class="right mono">3264.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="15" data-name="phosphorus" data-symbol="p" data-phase="solid" data-category="polyatomic nonmetal">
+      <td>15</td>
+      <td class="name-cell">Phosphorus</td>
+      <td class="symbol-cell">P</td>
+      <td class="right mono">30.9738</td>
+      <td class="right mono">1.823</td>
+      <td class="right mono">—</td>
+      <td class="right mono">—</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="16" data-name="sulfur" data-symbol="s" data-phase="solid" data-category="polyatomic nonmetal">
+      <td>16</td>
+      <td class="name-cell">Sulfur</td>
+      <td class="symbol-cell">S</td>
+      <td class="right mono">32.06</td>
+      <td class="right mono">2.07</td>
+      <td class="right mono">115.2</td>
+      <td class="right mono">444.6</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="17" data-name="chlorine" data-symbol="cl" data-phase="gas" data-category="diatomic nonmetal">
+      <td>17</td>
+      <td class="name-cell">Chlorine</td>
+      <td class="symbol-cell">Cl</td>
+      <td class="right mono">35.45</td>
+      <td class="right mono">0.0032</td>
+      <td class="right mono">-101.5</td>
+      <td class="right mono">-34</td>
+      <td><span class="badge gas">Gas</span></td>
+    </tr>
+    <tr data-number="18" data-name="argon" data-symbol="ar" data-phase="gas" data-category="noble gas">
+      <td>18</td>
+      <td class="name-cell">Argon</td>
+      <td class="symbol-cell">Ar</td>
+      <td class="right mono">39.9481</td>
+      <td class="right mono">0.001784</td>
+      <td class="right mono">-189.3</td>
+      <td class="right mono">-185.8</td>
+      <td><span class="badge gas">Gas</span></td>
+    </tr>
+    <tr data-number="19" data-name="potassium" data-symbol="k" data-phase="solid" data-category="alkali metal">
+      <td>19</td>
+      <td class="name-cell">Potassium</td>
+      <td class="symbol-cell">K</td>
+      <td class="right mono">39.0983</td>
+      <td class="right mono">0.862</td>
+      <td class="right mono">63.6</td>
+      <td class="right mono">758.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="20" data-name="calcium" data-symbol="ca" data-phase="solid" data-category="alkaline earth metal">
+      <td>20</td>
+      <td class="name-cell">Calcium</td>
+      <td class="symbol-cell">Ca</td>
+      <td class="right mono">40.0784</td>
+      <td class="right mono">1.55</td>
+      <td class="right mono">841.9</td>
+      <td class="right mono">1483.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="21" data-name="scandium" data-symbol="sc" data-phase="solid" data-category="transition metal">
+      <td>21</td>
+      <td class="name-cell">Scandium</td>
+      <td class="symbol-cell">Sc</td>
+      <td class="right mono">44.9559</td>
+      <td class="right mono">2.985</td>
+      <td class="right mono">1540.8</td>
+      <td class="right mono">2835.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="22" data-name="titanium" data-symbol="ti" data-phase="solid" data-category="transition metal">
+      <td>22</td>
+      <td class="name-cell">Titanium</td>
+      <td class="symbol-cell">Ti</td>
+      <td class="right mono">47.8671</td>
+      <td class="right mono">4.506</td>
+      <td class="right mono">1667.8</td>
+      <td class="right mono">3286.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="23" data-name="vanadium" data-symbol="v" data-phase="solid" data-category="transition metal">
+      <td>23</td>
+      <td class="name-cell">Vanadium</td>
+      <td class="symbol-cell">V</td>
+      <td class="right mono">50.9415</td>
+      <td class="right mono">6</td>
+      <td class="right mono">1909.8</td>
+      <td class="right mono">3406.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="24" data-name="chromium" data-symbol="cr" data-phase="solid" data-category="transition metal">
+      <td>24</td>
+      <td class="name-cell">Chromium</td>
+      <td class="symbol-cell">Cr</td>
+      <td class="right mono">51.9962</td>
+      <td class="right mono">7.19</td>
+      <td class="right mono">1906.8</td>
+      <td class="right mono">2670.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="25" data-name="manganese" data-symbol="mn" data-phase="solid" data-category="transition metal">
+      <td>25</td>
+      <td class="name-cell">Manganese</td>
+      <td class="symbol-cell">Mn</td>
+      <td class="right mono">54.938</td>
+      <td class="right mono">7.21</td>
+      <td class="right mono">1245.8</td>
+      <td class="right mono">2060.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="26" data-name="iron" data-symbol="fe" data-phase="solid" data-category="transition metal">
+      <td>26</td>
+      <td class="name-cell">Iron</td>
+      <td class="symbol-cell">Fe</td>
+      <td class="right mono">55.8452</td>
+      <td class="right mono">7.874</td>
+      <td class="right mono">1537.8</td>
+      <td class="right mono">2860.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="27" data-name="cobalt" data-symbol="co" data-phase="solid" data-category="transition metal">
+      <td>27</td>
+      <td class="name-cell">Cobalt</td>
+      <td class="symbol-cell">Co</td>
+      <td class="right mono">58.9332</td>
+      <td class="right mono">8.9</td>
+      <td class="right mono">1494.8</td>
+      <td class="right mono">2926.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="28" data-name="nickel" data-symbol="ni" data-phase="solid" data-category="transition metal">
+      <td>28</td>
+      <td class="name-cell">Nickel</td>
+      <td class="symbol-cell">Ni</td>
+      <td class="right mono">58.6934</td>
+      <td class="right mono">8.908</td>
+      <td class="right mono">1454.8</td>
+      <td class="right mono">2729.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="29" data-name="copper" data-symbol="cu" data-phase="solid" data-category="transition metal">
+      <td>29</td>
+      <td class="name-cell">Copper</td>
+      <td class="symbol-cell">Cu</td>
+      <td class="right mono">63.5463</td>
+      <td class="right mono">8.96</td>
+      <td class="right mono">1084.6</td>
+      <td class="right mono">2561.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="30" data-name="zinc" data-symbol="zn" data-phase="solid" data-category="transition metal">
+      <td>30</td>
+      <td class="name-cell">Zinc</td>
+      <td class="symbol-cell">Zn</td>
+      <td class="right mono">65.382</td>
+      <td class="right mono">7.14</td>
+      <td class="right mono">419.5</td>
+      <td class="right mono">906.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="31" data-name="gallium" data-symbol="ga" data-phase="solid" data-category="post-transition metal">
+      <td>31</td>
+      <td class="name-cell">Gallium</td>
+      <td class="symbol-cell">Ga</td>
+      <td class="right mono">69.7231</td>
+      <td class="right mono">5.91</td>
+      <td class="right mono">29.8</td>
+      <td class="right mono">2399.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="32" data-name="germanium" data-symbol="ge" data-phase="solid" data-category="metalloid">
+      <td>32</td>
+      <td class="name-cell">Germanium</td>
+      <td class="symbol-cell">Ge</td>
+      <td class="right mono">72.6308</td>
+      <td class="right mono">5.323</td>
+      <td class="right mono">938.3</td>
+      <td class="right mono">2832.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="33" data-name="arsenic" data-symbol="as" data-phase="solid" data-category="metalloid">
+      <td>33</td>
+      <td class="name-cell">Arsenic</td>
+      <td class="symbol-cell">As</td>
+      <td class="right mono">74.9216</td>
+      <td class="right mono">5.727</td>
+      <td class="right mono">—</td>
+      <td class="right mono">—</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="34" data-name="selenium" data-symbol="se" data-phase="solid" data-category="polyatomic nonmetal">
+      <td>34</td>
+      <td class="name-cell">Selenium</td>
+      <td class="symbol-cell">Se</td>
+      <td class="right mono">78.9718</td>
+      <td class="right mono">4.81</td>
+      <td class="right mono">220.9</td>
+      <td class="right mono">684.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="35" data-name="bromine" data-symbol="br" data-phase="liquid" data-category="diatomic nonmetal">
+      <td>35</td>
+      <td class="name-cell">Bromine</td>
+      <td class="symbol-cell">Br</td>
+      <td class="right mono">79.904</td>
+      <td class="right mono">3.103</td>
+      <td class="right mono">-7.3</td>
+      <td class="right mono">58.9</td>
+      <td><span class="badge liquid">Liquid</span></td>
+    </tr>
+    <tr data-number="36" data-name="krypton" data-symbol="kr" data-phase="gas" data-category="noble gas">
+      <td>36</td>
+      <td class="name-cell">Krypton</td>
+      <td class="symbol-cell">Kr</td>
+      <td class="right mono">83.7982</td>
+      <td class="right mono">0.003749</td>
+      <td class="right mono">-157.4</td>
+      <td class="right mono">-153.2</td>
+      <td><span class="badge gas">Gas</span></td>
+    </tr>
+    <tr data-number="37" data-name="rubidium" data-symbol="rb" data-phase="solid" data-category="alkali metal">
+      <td>37</td>
+      <td class="name-cell">Rubidium</td>
+      <td class="symbol-cell">Rb</td>
+      <td class="right mono">85.4678</td>
+      <td class="right mono">1.532</td>
+      <td class="right mono">39.3</td>
+      <td class="right mono">687.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="38" data-name="strontium" data-symbol="sr" data-phase="solid" data-category="alkaline earth metal">
+      <td>38</td>
+      <td class="name-cell">Strontium</td>
+      <td class="symbol-cell">Sr</td>
+      <td class="right mono">87.621</td>
+      <td class="right mono">2.64</td>
+      <td class="right mono">776.9</td>
+      <td class="right mono">1376.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="39" data-name="yttrium" data-symbol="y" data-phase="solid" data-category="transition metal">
+      <td>39</td>
+      <td class="name-cell">Yttrium</td>
+      <td class="symbol-cell">Y</td>
+      <td class="right mono">88.9058</td>
+      <td class="right mono">4.472</td>
+      <td class="right mono">1525.8</td>
+      <td class="right mono">2929.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="40" data-name="zirconium" data-symbol="zr" data-phase="solid" data-category="transition metal">
+      <td>40</td>
+      <td class="name-cell">Zirconium</td>
+      <td class="symbol-cell">Zr</td>
+      <td class="right mono">91.2242</td>
+      <td class="right mono">6.52</td>
+      <td class="right mono">1854.8</td>
+      <td class="right mono">4376.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="41" data-name="niobium" data-symbol="nb" data-phase="solid" data-category="transition metal">
+      <td>41</td>
+      <td class="name-cell">Niobium</td>
+      <td class="symbol-cell">Nb</td>
+      <td class="right mono">92.9064</td>
+      <td class="right mono">8.57</td>
+      <td class="right mono">2476.8</td>
+      <td class="right mono">4743.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="42" data-name="molybdenum" data-symbol="mo" data-phase="solid" data-category="transition metal">
+      <td>42</td>
+      <td class="name-cell">Molybdenum</td>
+      <td class="symbol-cell">Mo</td>
+      <td class="right mono">95.951</td>
+      <td class="right mono">10.28</td>
+      <td class="right mono">2622.8</td>
+      <td class="right mono">4638.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="43" data-name="technetium" data-symbol="tc" data-phase="solid" data-category="transition metal">
+      <td>43</td>
+      <td class="name-cell">Technetium</td>
+      <td class="symbol-cell">Tc</td>
+      <td class="right mono">98</td>
+      <td class="right mono">11</td>
+      <td class="right mono">2156.8</td>
+      <td class="right mono">4264.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="44" data-name="ruthenium" data-symbol="ru" data-phase="solid" data-category="transition metal">
+      <td>44</td>
+      <td class="name-cell">Ruthenium</td>
+      <td class="symbol-cell">Ru</td>
+      <td class="right mono">101.072</td>
+      <td class="right mono">12.45</td>
+      <td class="right mono">2333.8</td>
+      <td class="right mono">4149.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="45" data-name="rhodium" data-symbol="rh" data-phase="solid" data-category="transition metal">
+      <td>45</td>
+      <td class="name-cell">Rhodium</td>
+      <td class="symbol-cell">Rh</td>
+      <td class="right mono">102.9055</td>
+      <td class="right mono">12.41</td>
+      <td class="right mono">1963.8</td>
+      <td class="right mono">3694.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="46" data-name="palladium" data-symbol="pd" data-phase="solid" data-category="transition metal">
+      <td>46</td>
+      <td class="name-cell">Palladium</td>
+      <td class="symbol-cell">Pd</td>
+      <td class="right mono">106.421</td>
+      <td class="right mono">12.023</td>
+      <td class="right mono">1554.9</td>
+      <td class="right mono">2962.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="47" data-name="silver" data-symbol="ag" data-phase="solid" data-category="transition metal">
+      <td>47</td>
+      <td class="name-cell">Silver</td>
+      <td class="symbol-cell">Ag</td>
+      <td class="right mono">107.8682</td>
+      <td class="right mono">10.49</td>
+      <td class="right mono">961.8</td>
+      <td class="right mono">2161.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="48" data-name="cadmium" data-symbol="cd" data-phase="solid" data-category="transition metal">
+      <td>48</td>
+      <td class="name-cell">Cadmium</td>
+      <td class="symbol-cell">Cd</td>
+      <td class="right mono">112.4144</td>
+      <td class="right mono">8.65</td>
+      <td class="right mono">321.1</td>
+      <td class="right mono">766.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="49" data-name="indium" data-symbol="in" data-phase="solid" data-category="post-transition metal">
+      <td>49</td>
+      <td class="name-cell">Indium</td>
+      <td class="symbol-cell">In</td>
+      <td class="right mono">114.8181</td>
+      <td class="right mono">7.31</td>
+      <td class="right mono">156.6</td>
+      <td class="right mono">2071.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="50" data-name="tin" data-symbol="sn" data-phase="solid" data-category="post-transition metal">
+      <td>50</td>
+      <td class="name-cell">Tin</td>
+      <td class="symbol-cell">Sn</td>
+      <td class="right mono">118.7107</td>
+      <td class="right mono">7.365</td>
+      <td class="right mono">231.9</td>
+      <td class="right mono">2601.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="51" data-name="antimony" data-symbol="sb" data-phase="solid" data-category="metalloid">
+      <td>51</td>
+      <td class="name-cell">Antimony</td>
+      <td class="symbol-cell">Sb</td>
+      <td class="right mono">121.7601</td>
+      <td class="right mono">6.697</td>
+      <td class="right mono">630.6</td>
+      <td class="right mono">1634.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="52" data-name="tellurium" data-symbol="te" data-phase="solid" data-category="metalloid">
+      <td>52</td>
+      <td class="name-cell">Tellurium</td>
+      <td class="symbol-cell">Te</td>
+      <td class="right mono">127.603</td>
+      <td class="right mono">6.24</td>
+      <td class="right mono">449.5</td>
+      <td class="right mono">987.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="53" data-name="iodine" data-symbol="i" data-phase="solid" data-category="diatomic nonmetal">
+      <td>53</td>
+      <td class="name-cell">Iodine</td>
+      <td class="symbol-cell">I</td>
+      <td class="right mono">126.9045</td>
+      <td class="right mono">4.933</td>
+      <td class="right mono">113.7</td>
+      <td class="right mono">184.2</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="54" data-name="xenon" data-symbol="xe" data-phase="gas" data-category="noble gas">
+      <td>54</td>
+      <td class="name-cell">Xenon</td>
+      <td class="symbol-cell">Xe</td>
+      <td class="right mono">131.2936</td>
+      <td class="right mono">0.005894</td>
+      <td class="right mono">-111.7</td>
+      <td class="right mono">-108.1</td>
+      <td><span class="badge gas">Gas</span></td>
+    </tr>
+    <tr data-number="55" data-name="cesium" data-symbol="cs" data-phase="solid" data-category="alkali metal">
+      <td>55</td>
+      <td class="name-cell">Cesium</td>
+      <td class="symbol-cell">Cs</td>
+      <td class="right mono">132.9055</td>
+      <td class="right mono">1.93</td>
+      <td class="right mono">28.6</td>
+      <td class="right mono">670.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="56" data-name="barium" data-symbol="ba" data-phase="solid" data-category="alkaline earth metal">
+      <td>56</td>
+      <td class="name-cell">Barium</td>
+      <td class="symbol-cell">Ba</td>
+      <td class="right mono">137.3277</td>
+      <td class="right mono">3.51</td>
+      <td class="right mono">726.9</td>
+      <td class="right mono">1844.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="57" data-name="lanthanum" data-symbol="la" data-phase="solid" data-category="lanthanide">
+      <td>57</td>
+      <td class="name-cell">Lanthanum</td>
+      <td class="symbol-cell">La</td>
+      <td class="right mono">138.9055</td>
+      <td class="right mono">6.162</td>
+      <td class="right mono">919.9</td>
+      <td class="right mono">3463.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="58" data-name="cerium" data-symbol="ce" data-phase="solid" data-category="lanthanide">
+      <td>58</td>
+      <td class="name-cell">Cerium</td>
+      <td class="symbol-cell">Ce</td>
+      <td class="right mono">140.1161</td>
+      <td class="right mono">6.77</td>
+      <td class="right mono">794.9</td>
+      <td class="right mono">3442.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="59" data-name="praseodymium" data-symbol="pr" data-phase="solid" data-category="lanthanide">
+      <td>59</td>
+      <td class="name-cell">Praseodymium</td>
+      <td class="symbol-cell">Pr</td>
+      <td class="right mono">140.9077</td>
+      <td class="right mono">6.77</td>
+      <td class="right mono">934.9</td>
+      <td class="right mono">3129.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="60" data-name="neodymium" data-symbol="nd" data-phase="solid" data-category="lanthanide">
+      <td>60</td>
+      <td class="name-cell">Neodymium</td>
+      <td class="symbol-cell">Nd</td>
+      <td class="right mono">144.2423</td>
+      <td class="right mono">7.01</td>
+      <td class="right mono">1023.9</td>
+      <td class="right mono">3073.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="61" data-name="promethium" data-symbol="pm" data-phase="solid" data-category="lanthanide">
+      <td>61</td>
+      <td class="name-cell">Promethium</td>
+      <td class="symbol-cell">Pm</td>
+      <td class="right mono">145</td>
+      <td class="right mono">7.26</td>
+      <td class="right mono">1041.8</td>
+      <td class="right mono">2999.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="62" data-name="samarium" data-symbol="sm" data-phase="solid" data-category="lanthanide">
+      <td>62</td>
+      <td class="name-cell">Samarium</td>
+      <td class="symbol-cell">Sm</td>
+      <td class="right mono">150.362</td>
+      <td class="right mono">7.52</td>
+      <td class="right mono">1071.8</td>
+      <td class="right mono">1899.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="63" data-name="europium" data-symbol="eu" data-phase="solid" data-category="lanthanide">
+      <td>63</td>
+      <td class="name-cell">Europium</td>
+      <td class="symbol-cell">Eu</td>
+      <td class="right mono">151.9641</td>
+      <td class="right mono">5.264</td>
+      <td class="right mono">825.9</td>
+      <td class="right mono">1528.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="64" data-name="gadolinium" data-symbol="gd" data-phase="solid" data-category="lanthanide">
+      <td>64</td>
+      <td class="name-cell">Gadolinium</td>
+      <td class="symbol-cell">Gd</td>
+      <td class="right mono">157.253</td>
+      <td class="right mono">7.9</td>
+      <td class="right mono">1311.8</td>
+      <td class="right mono">2999.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="65" data-name="terbium" data-symbol="tb" data-phase="solid" data-category="lanthanide">
+      <td>65</td>
+      <td class="name-cell">Terbium</td>
+      <td class="symbol-cell">Tb</td>
+      <td class="right mono">158.9254</td>
+      <td class="right mono">8.23</td>
+      <td class="right mono">1355.8</td>
+      <td class="right mono">3122.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="66" data-name="dysprosium" data-symbol="dy" data-phase="solid" data-category="lanthanide">
+      <td>66</td>
+      <td class="name-cell">Dysprosium</td>
+      <td class="symbol-cell">Dy</td>
+      <td class="right mono">162.5001</td>
+      <td class="right mono">8.54</td>
+      <td class="right mono">1406.8</td>
+      <td class="right mono">2566.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="67" data-name="holmium" data-symbol="ho" data-phase="solid" data-category="lanthanide">
+      <td>67</td>
+      <td class="name-cell">Holmium</td>
+      <td class="symbol-cell">Ho</td>
+      <td class="right mono">164.9303</td>
+      <td class="right mono">8.79</td>
+      <td class="right mono">1460.8</td>
+      <td class="right mono">2599.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="68" data-name="erbium" data-symbol="er" data-phase="solid" data-category="lanthanide">
+      <td>68</td>
+      <td class="name-cell">Erbium</td>
+      <td class="symbol-cell">Er</td>
+      <td class="right mono">167.2593</td>
+      <td class="right mono">9.066</td>
+      <td class="right mono">1528.8</td>
+      <td class="right mono">2867.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="69" data-name="thulium" data-symbol="tm" data-phase="solid" data-category="lanthanide">
+      <td>69</td>
+      <td class="name-cell">Thulium</td>
+      <td class="symbol-cell">Tm</td>
+      <td class="right mono">168.9342</td>
+      <td class="right mono">9.32</td>
+      <td class="right mono">1544.8</td>
+      <td class="right mono">1949.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="70" data-name="ytterbium" data-symbol="yb" data-phase="solid" data-category="lanthanide">
+      <td>70</td>
+      <td class="name-cell">Ytterbium</td>
+      <td class="symbol-cell">Yb</td>
+      <td class="right mono">173.0451</td>
+      <td class="right mono">6.9</td>
+      <td class="right mono">823.9</td>
+      <td class="right mono">1195.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="71" data-name="lutetium" data-symbol="lu" data-phase="solid" data-category="lanthanide">
+      <td>71</td>
+      <td class="name-cell">Lutetium</td>
+      <td class="symbol-cell">Lu</td>
+      <td class="right mono">174.9668</td>
+      <td class="right mono">9.841</td>
+      <td class="right mono">1651.8</td>
+      <td class="right mono">3401.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="72" data-name="hafnium" data-symbol="hf" data-phase="solid" data-category="transition metal">
+      <td>72</td>
+      <td class="name-cell">Hafnium</td>
+      <td class="symbol-cell">Hf</td>
+      <td class="right mono">178.492</td>
+      <td class="right mono">13.31</td>
+      <td class="right mono">2232.8</td>
+      <td class="right mono">4602.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="73" data-name="tantalum" data-symbol="ta" data-phase="solid" data-category="transition metal">
+      <td>73</td>
+      <td class="name-cell">Tantalum</td>
+      <td class="symbol-cell">Ta</td>
+      <td class="right mono">180.9479</td>
+      <td class="right mono">16.69</td>
+      <td class="right mono">3016.8</td>
+      <td class="right mono">5457.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="74" data-name="tungsten" data-symbol="w" data-phase="solid" data-category="transition metal">
+      <td>74</td>
+      <td class="name-cell">Tungsten</td>
+      <td class="symbol-cell">W</td>
+      <td class="right mono">183.841</td>
+      <td class="right mono">19.25</td>
+      <td class="right mono">3421.8</td>
+      <td class="right mono">5929.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="75" data-name="rhenium" data-symbol="re" data-phase="solid" data-category="transition metal">
+      <td>75</td>
+      <td class="name-cell">Rhenium</td>
+      <td class="symbol-cell">Re</td>
+      <td class="right mono">186.2071</td>
+      <td class="right mono">21.02</td>
+      <td class="right mono">3185.8</td>
+      <td class="right mono">5595.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="76" data-name="osmium" data-symbol="os" data-phase="solid" data-category="transition metal">
+      <td>76</td>
+      <td class="name-cell">Osmium</td>
+      <td class="symbol-cell">Os</td>
+      <td class="right mono">190.233</td>
+      <td class="right mono">22.59</td>
+      <td class="right mono">3032.8</td>
+      <td class="right mono">5011.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="77" data-name="iridium" data-symbol="ir" data-phase="solid" data-category="transition metal">
+      <td>77</td>
+      <td class="name-cell">Iridium</td>
+      <td class="symbol-cell">Ir</td>
+      <td class="right mono">192.2173</td>
+      <td class="right mono">22.56</td>
+      <td class="right mono">2445.8</td>
+      <td class="right mono">4129.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="78" data-name="platinum" data-symbol="pt" data-phase="solid" data-category="transition metal">
+      <td>78</td>
+      <td class="name-cell">Platinum</td>
+      <td class="symbol-cell">Pt</td>
+      <td class="right mono">195.0849</td>
+      <td class="right mono">21.45</td>
+      <td class="right mono">1768.2</td>
+      <td class="right mono">3824.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="79" data-name="gold" data-symbol="au" data-phase="solid" data-category="transition metal">
+      <td>79</td>
+      <td class="name-cell">Gold</td>
+      <td class="symbol-cell">Au</td>
+      <td class="right mono">196.9666</td>
+      <td class="right mono">19.3</td>
+      <td class="right mono">1064.2</td>
+      <td class="right mono">2969.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="80" data-name="mercury" data-symbol="hg" data-phase="liquid" data-category="transition metal">
+      <td>80</td>
+      <td class="name-cell">Mercury</td>
+      <td class="symbol-cell">Hg</td>
+      <td class="right mono">200.5923</td>
+      <td class="right mono">13.534</td>
+      <td class="right mono">-38.8</td>
+      <td class="right mono">356.7</td>
+      <td><span class="badge liquid">Liquid</span></td>
+    </tr>
+    <tr data-number="81" data-name="thallium" data-symbol="tl" data-phase="solid" data-category="post-transition metal">
+      <td>81</td>
+      <td class="name-cell">Thallium</td>
+      <td class="symbol-cell">Tl</td>
+      <td class="right mono">204.38</td>
+      <td class="right mono">11.85</td>
+      <td class="right mono">303.9</td>
+      <td class="right mono">1472.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="82" data-name="lead" data-symbol="pb" data-phase="solid" data-category="post-transition metal">
+      <td>82</td>
+      <td class="name-cell">Lead</td>
+      <td class="symbol-cell">Pb</td>
+      <td class="right mono">207.21</td>
+      <td class="right mono">11.34</td>
+      <td class="right mono">327.5</td>
+      <td class="right mono">1748.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="83" data-name="bismuth" data-symbol="bi" data-phase="solid" data-category="post-transition metal">
+      <td>83</td>
+      <td class="name-cell">Bismuth</td>
+      <td class="symbol-cell">Bi</td>
+      <td class="right mono">208.9804</td>
+      <td class="right mono">9.78</td>
+      <td class="right mono">271.6</td>
+      <td class="right mono">1563.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="84" data-name="polonium" data-symbol="po" data-phase="solid" data-category="post-transition metal">
+      <td>84</td>
+      <td class="name-cell">Polonium</td>
+      <td class="symbol-cell">Po</td>
+      <td class="right mono">209</td>
+      <td class="right mono">9.196</td>
+      <td class="right mono">253.9</td>
+      <td class="right mono">961.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="85" data-name="astatine" data-symbol="at" data-phase="solid" data-category="metalloid">
+      <td>85</td>
+      <td class="name-cell">Astatine</td>
+      <td class="symbol-cell">At</td>
+      <td class="right mono">210</td>
+      <td class="right mono">6.35</td>
+      <td class="right mono">301.9</td>
+      <td class="right mono">336.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="86" data-name="radon" data-symbol="rn" data-phase="gas" data-category="noble gas">
+      <td>86</td>
+      <td class="name-cell">Radon</td>
+      <td class="symbol-cell">Rn</td>
+      <td class="right mono">222</td>
+      <td class="right mono">0.00973</td>
+      <td class="right mono">-71.1</td>
+      <td class="right mono">-61.6</td>
+      <td><span class="badge gas">Gas</span></td>
+    </tr>
+    <tr data-number="87" data-name="francium" data-symbol="fr" data-phase="solid" data-category="alkali metal">
+      <td>87</td>
+      <td class="name-cell">Francium</td>
+      <td class="symbol-cell">Fr</td>
+      <td class="right mono">223</td>
+      <td class="right mono">1.87</td>
+      <td class="right mono">26.9</td>
+      <td class="right mono">676.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="88" data-name="radium" data-symbol="ra" data-phase="solid" data-category="alkaline earth metal">
+      <td>88</td>
+      <td class="name-cell">Radium</td>
+      <td class="symbol-cell">Ra</td>
+      <td class="right mono">226</td>
+      <td class="right mono">5.5</td>
+      <td class="right mono">959.9</td>
+      <td class="right mono">1736.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="89" data-name="actinium" data-symbol="ac" data-phase="solid" data-category="actinide">
+      <td>89</td>
+      <td class="name-cell">Actinium</td>
+      <td class="symbol-cell">Ac</td>
+      <td class="right mono">227</td>
+      <td class="right mono">10</td>
+      <td class="right mono">1226.8</td>
+      <td class="right mono">3226.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="90" data-name="thorium" data-symbol="th" data-phase="solid" data-category="actinide">
+      <td>90</td>
+      <td class="name-cell">Thorium</td>
+      <td class="symbol-cell">Th</td>
+      <td class="right mono">232.0377</td>
+      <td class="right mono">11.724</td>
+      <td class="right mono">1749.8</td>
+      <td class="right mono">4787.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="91" data-name="protactinium" data-symbol="pa" data-phase="solid" data-category="actinide">
+      <td>91</td>
+      <td class="name-cell">Protactinium</td>
+      <td class="symbol-cell">Pa</td>
+      <td class="right mono">231.0359</td>
+      <td class="right mono">15.37</td>
+      <td class="right mono">1567.8</td>
+      <td class="right mono">4026.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="92" data-name="uranium" data-symbol="u" data-phase="solid" data-category="actinide">
+      <td>92</td>
+      <td class="name-cell">Uranium</td>
+      <td class="symbol-cell">U</td>
+      <td class="right mono">238.0289</td>
+      <td class="right mono">19.1</td>
+      <td class="right mono">1132.2</td>
+      <td class="right mono">4130.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="93" data-name="neptunium" data-symbol="np" data-phase="solid" data-category="actinide">
+      <td>93</td>
+      <td class="name-cell">Neptunium</td>
+      <td class="symbol-cell">Np</td>
+      <td class="right mono">237</td>
+      <td class="right mono">20.45</td>
+      <td class="right mono">638.9</td>
+      <td class="right mono">4173.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="94" data-name="plutonium" data-symbol="pu" data-phase="solid" data-category="actinide">
+      <td>94</td>
+      <td class="name-cell">Plutonium</td>
+      <td class="symbol-cell">Pu</td>
+      <td class="right mono">244</td>
+      <td class="right mono">19.816</td>
+      <td class="right mono">639.4</td>
+      <td class="right mono">3231.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="95" data-name="americium" data-symbol="am" data-phase="solid" data-category="actinide">
+      <td>95</td>
+      <td class="name-cell">Americium</td>
+      <td class="symbol-cell">Am</td>
+      <td class="right mono">243</td>
+      <td class="right mono">12</td>
+      <td class="right mono">1175.8</td>
+      <td class="right mono">2606.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="96" data-name="curium" data-symbol="cm" data-phase="solid" data-category="actinide">
+      <td>96</td>
+      <td class="name-cell">Curium</td>
+      <td class="symbol-cell">Cm</td>
+      <td class="right mono">247</td>
+      <td class="right mono">13.51</td>
+      <td class="right mono">1339.8</td>
+      <td class="right mono">3109.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="97" data-name="berkelium" data-symbol="bk" data-phase="solid" data-category="actinide">
+      <td>97</td>
+      <td class="name-cell">Berkelium</td>
+      <td class="symbol-cell">Bk</td>
+      <td class="right mono">247</td>
+      <td class="right mono">14.78</td>
+      <td class="right mono">985.9</td>
+      <td class="right mono">2626.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="98" data-name="californium" data-symbol="cf" data-phase="solid" data-category="actinide">
+      <td>98</td>
+      <td class="name-cell">Californium</td>
+      <td class="symbol-cell">Cf</td>
+      <td class="right mono">251</td>
+      <td class="right mono">15.1</td>
+      <td class="right mono">899.9</td>
+      <td class="right mono">1469.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="99" data-name="einsteinium" data-symbol="es" data-phase="solid" data-category="actinide">
+      <td>99</td>
+      <td class="name-cell">Einsteinium</td>
+      <td class="symbol-cell">Es</td>
+      <td class="right mono">252</td>
+      <td class="right mono">8.84</td>
+      <td class="right mono">859.9</td>
+      <td class="right mono">995.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="100" data-name="fermium" data-symbol="fm" data-phase="solid" data-category="actinide">
+      <td>100</td>
+      <td class="name-cell">Fermium</td>
+      <td class="symbol-cell">Fm</td>
+      <td class="right mono">257</td>
+      <td class="right mono">—</td>
+      <td class="right mono">1526.8</td>
+      <td class="right mono">—</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="101" data-name="mendelevium" data-symbol="md" data-phase="solid" data-category="actinide">
+      <td>101</td>
+      <td class="name-cell">Mendelevium</td>
+      <td class="symbol-cell">Md</td>
+      <td class="right mono">258</td>
+      <td class="right mono">—</td>
+      <td class="right mono">826.9</td>
+      <td class="right mono">—</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="102" data-name="nobelium" data-symbol="no" data-phase="solid" data-category="actinide">
+      <td>102</td>
+      <td class="name-cell">Nobelium</td>
+      <td class="symbol-cell">No</td>
+      <td class="right mono">259</td>
+      <td class="right mono">—</td>
+      <td class="right mono">826.9</td>
+      <td class="right mono">—</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="103" data-name="lawrencium" data-symbol="lr" data-phase="solid" data-category="actinide">
+      <td>103</td>
+      <td class="name-cell">Lawrencium</td>
+      <td class="symbol-cell">Lr</td>
+      <td class="right mono">266</td>
+      <td class="right mono">—</td>
+      <td class="right mono">1626.8</td>
+      <td class="right mono">—</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="104" data-name="rutherfordium" data-symbol="rf" data-phase="solid" data-category="transition metal">
+      <td>104</td>
+      <td class="name-cell">Rutherfordium</td>
+      <td class="symbol-cell">Rf</td>
+      <td class="right mono">267</td>
+      <td class="right mono">23.2</td>
+      <td class="right mono">2126.8</td>
+      <td class="right mono">5526.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="105" data-name="dubnium" data-symbol="db" data-phase="solid" data-category="transition metal">
+      <td>105</td>
+      <td class="name-cell">Dubnium</td>
+      <td class="symbol-cell">Db</td>
+      <td class="right mono">268</td>
+      <td class="right mono">29.3</td>
+      <td class="right mono">—</td>
+      <td class="right mono">—</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="106" data-name="seaborgium" data-symbol="sg" data-phase="solid" data-category="transition metal">
+      <td>106</td>
+      <td class="name-cell">Seaborgium</td>
+      <td class="symbol-cell">Sg</td>
+      <td class="right mono">269</td>
+      <td class="right mono">35</td>
+      <td class="right mono">—</td>
+      <td class="right mono">—</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="107" data-name="bohrium" data-symbol="bh" data-phase="solid" data-category="transition metal">
+      <td>107</td>
+      <td class="name-cell">Bohrium</td>
+      <td class="symbol-cell">Bh</td>
+      <td class="right mono">270</td>
+      <td class="right mono">37.1</td>
+      <td class="right mono">—</td>
+      <td class="right mono">—</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="108" data-name="hassium" data-symbol="hs" data-phase="solid" data-category="transition metal">
+      <td>108</td>
+      <td class="name-cell">Hassium</td>
+      <td class="symbol-cell">Hs</td>
+      <td class="right mono">269</td>
+      <td class="right mono">40.7</td>
+      <td class="right mono">-147.1</td>
+      <td class="right mono">—</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="109" data-name="meitnerium" data-symbol="mt" data-phase="solid" data-category="unknown, probably transition metal">
+      <td>109</td>
+      <td class="name-cell">Meitnerium</td>
+      <td class="symbol-cell">Mt</td>
+      <td class="right mono">278</td>
+      <td class="right mono">37.4</td>
+      <td class="right mono">—</td>
+      <td class="right mono">—</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="110" data-name="darmstadtium" data-symbol="ds" data-phase="solid" data-category="unknown, probably transition metal">
+      <td>110</td>
+      <td class="name-cell">Darmstadtium</td>
+      <td class="symbol-cell">Ds</td>
+      <td class="right mono">281</td>
+      <td class="right mono">34.8</td>
+      <td class="right mono">—</td>
+      <td class="right mono">—</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="111" data-name="roentgenium" data-symbol="rg" data-phase="solid" data-category="unknown, probably transition metal">
+      <td>111</td>
+      <td class="name-cell">Roentgenium</td>
+      <td class="symbol-cell">Rg</td>
+      <td class="right mono">282</td>
+      <td class="right mono">28.7</td>
+      <td class="right mono">—</td>
+      <td class="right mono">—</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="112" data-name="copernicium" data-symbol="cn" data-phase="liquid" data-category="transition metal">
+      <td>112</td>
+      <td class="name-cell">Copernicium</td>
+      <td class="symbol-cell">Cn</td>
+      <td class="right mono">285</td>
+      <td class="right mono">14</td>
+      <td class="right mono">—</td>
+      <td class="right mono">3296.8</td>
+      <td><span class="badge liquid">Liquid</span></td>
+    </tr>
+    <tr data-number="113" data-name="nihonium" data-symbol="nh" data-phase="solid" data-category="unknown, probably transition metal">
+      <td>113</td>
+      <td class="name-cell">Nihonium</td>
+      <td class="symbol-cell">Nh</td>
+      <td class="right mono">286</td>
+      <td class="right mono">16</td>
+      <td class="right mono">426.9</td>
+      <td class="right mono">1156.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="114" data-name="flerovium" data-symbol="fl" data-phase="solid" data-category="post-transition metal">
+      <td>114</td>
+      <td class="name-cell">Flerovium</td>
+      <td class="symbol-cell">Fl</td>
+      <td class="right mono">289</td>
+      <td class="right mono">14</td>
+      <td class="right mono">66.9</td>
+      <td class="right mono">146.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="115" data-name="moscovium" data-symbol="mc" data-phase="solid" data-category="unknown, probably post-transition metal">
+      <td>115</td>
+      <td class="name-cell">Moscovium</td>
+      <td class="symbol-cell">Mc</td>
+      <td class="right mono">289</td>
+      <td class="right mono">13.5</td>
+      <td class="right mono">396.9</td>
+      <td class="right mono">1126.8</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="116" data-name="livermorium" data-symbol="lv" data-phase="solid" data-category="unknown, probably post-transition metal">
+      <td>116</td>
+      <td class="name-cell">Livermorium</td>
+      <td class="symbol-cell">Lv</td>
+      <td class="right mono">293</td>
+      <td class="right mono">12.9</td>
+      <td class="right mono">435.9</td>
+      <td class="right mono">811.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="117" data-name="tennessine" data-symbol="ts" data-phase="solid" data-category="unknown, probably metalloid">
+      <td>117</td>
+      <td class="name-cell">Tennessine</td>
+      <td class="symbol-cell">Ts</td>
+      <td class="right mono">294</td>
+      <td class="right mono">7.17</td>
+      <td class="right mono">449.9</td>
+      <td class="right mono">609.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+    <tr data-number="118" data-name="oganesson" data-symbol="og" data-phase="solid" data-category="unknown, predicted to be noble gas">
+      <td>118</td>
+      <td class="name-cell">Oganesson</td>
+      <td class="symbol-cell">Og</td>
+      <td class="right mono">294</td>
+      <td class="right mono">4.95</td>
+      <td class="right mono">—</td>
+      <td class="right mono">76.9</td>
+      <td><span class="badge solid">Solid</span></td>
+    </tr>
+        </tbody>
+      </table>
+      <div id="noResults" class="no-results"><strong>No elements found</strong><br>Try a different search term or clear the filters.</div>
+    </div>
 
-        body {
-            margin: 5vw;
-        }
-        @keyframes colorchange {
-            0% {
-                color: red;
-            }
+    <div class="table-footer">
+      <div>Showing <strong id="count">118</strong> of 118 elements</div>
+      <div style="display:flex;gap:8px">
+        <button class="btn" id="exportBtn" type="button">Export CSV</button>
+        <button class="btn primary" id="resetBtn" type="button">Reset filters</button>
+      </div>
+    </div>
+  </div>
 
-            25% {
-                color: blue;
-            }
+  <p class="hint">Tip: Click a column header to sort. Press <kbd>/</kbd> to focus search. The full table loads instantly — search just filters it.</p>
 
-            50% {
-                color: green;
-            }
+  <footer class="site-footer">
+    Elements Database • Data from Wikipedia / Periodic-Table-JSON<br>
+    Original: <a href="https://paschal6.github.io/Elements-2/element.html" target="_blank" rel="noopener">paschal6.github.io/Elements-2/element.html</a>
+  </footer>
+</main>
 
-            75% {
-                color: yellow;
-            }
+<script>
+const ELEMENTS = [{"name":"Hydrogen","symbol":"H","number":1,"atomic_mass":1.008,"category":"diatomic nonmetal","phase":"Gas","density":0.08988,"melt":13.99,"boil":20.271,"xpos":1,"ypos":1,"electron_configuration_semantic":"1s1","electronegativity_pauling":2.2,"discovered_by":"Henry Cavendish","summary":"Hydrogen is a chemical element with chemical symbol H and atomic number 1. With an atomic weight of 1.00794 u, hydrogen is the lightest element on the periodic table. Its monatomic form (H) is the most abundant chemical substance in the Universe, constituting roughly 75% of all baryonic mass.","source":"https://en.wikipedia.org/wiki/Hydrogen","cpk_hex":"ffffff","density_gcm3":8.988e-05,"melt_c":-259.15999999999997,"boil_c":-252.87899999999996},{"name":"Helium","symbol":"He","number":2,"atomic_mass":4.0026022,"category":"noble gas","phase":"Gas","density":0.1786,"melt":0.95,"boil":4.222,"xpos":18,"ypos":1,"electron_configuration_semantic":"1s2","electronegativity_pauling":null,"discovered_by":"Pierre Janssen","summary":"Helium is a chemical element with symbol He and atomic number 2. It is a colorless, odorless, tasteless, non-toxic, inert, monatomic gas that heads the noble gas group in the periodic table. Its boiling and melting points are the lowest among all the elements.","source":"https://en.wikipedia.org/wiki/Helium","cpk_hex":"d9ffff","density_gcm3":0.0001786,"melt_c":-272.2,"boil_c":-268.928},{"name":"Lithium","symbol":"Li","number":3,"atomic_mass":6.94,"category":"alkali metal","phase":"Solid","density":0.534,"melt":453.65,"boil":1603,"xpos":1,"ypos":2,"electron_configuration_semantic":"[He] 2s1","electronegativity_pauling":0.98,"discovered_by":"Johan August Arfwedson","summary":"Lithium (from Greek:\u03bb\u03af\u03b8\u03bf\u03c2 lithos, \"stone\") is a chemical element with the symbol Li and atomic number 3. It is a soft, silver-white metal belonging to the alkali metal group of chemical elements. Under standard conditions it is the lightest metal and the least dense solid element.","source":"https://en.wikipedia.org/wiki/Lithium","cpk_hex":"cc80ff","density_gcm3":0.534,"melt_c":180.5,"boil_c":1329.85},{"name":"Beryllium","symbol":"Be","number":4,"atomic_mass":9.01218315,"category":"alkaline earth metal","phase":"Solid","density":1.85,"melt":1560,"boil":2742,"xpos":2,"ypos":2,"electron_configuration_semantic":"[He] 2s2","electronegativity_pauling":1.57,"discovered_by":"Louis Nicolas Vauquelin","summary":"Beryllium is a chemical element with symbol Be and atomic number 4. It is created through stellar nucleosynthesis and is a relatively rare element in the universe. It is a divalent element which occurs naturally only in combination with other elements in minerals.","source":"https://en.wikipedia.org/wiki/Beryllium","cpk_hex":"c2ff00","density_gcm3":1.85,"melt_c":1286.85,"boil_c":2468.85},{"name":"Boron","symbol":"B","number":5,"atomic_mass":10.81,"category":"metalloid","phase":"Solid","density":2.08,"melt":2349,"boil":4200,"xpos":13,"ypos":2,"electron_configuration_semantic":"[He] 2s2 2p1","electronegativity_pauling":2.04,"discovered_by":"Joseph Louis Gay-Lussac","summary":"Boron is a metalloid chemical element with symbol B and atomic number 5. Produced entirely by cosmic ray spallation and supernovae and not by stellar nucleosynthesis, it is a low-abundance element in both the Solar system and the Earth's crust. Boron is concentrated on Earth by the water-solubility of its more common naturally occurring compounds, the borate minerals.","source":"https://en.wikipedia.org/wiki/Boron","cpk_hex":"ffb5b5","density_gcm3":2.08,"melt_c":2075.85,"boil_c":3926.85},{"name":"Carbon","symbol":"C","number":6,"atomic_mass":12.011,"category":"polyatomic nonmetal","phase":"Solid","density":1.821,"melt":null,"boil":null,"xpos":14,"ypos":2,"electron_configuration_semantic":"[He] 2s2 2p2","electronegativity_pauling":2.55,"discovered_by":"Ancient Egypt","summary":"Carbon (from Latin:carbo \"coal\") is a chemical element with symbol C and atomic number 6. On the periodic table, it is the first (row 2) of six elements in column (group) 14, which have in common the composition of their outer electron shell. It is nonmetallic and tetravalent\u2014making four electrons available to form covalent chemical bonds.","source":"https://en.wikipedia.org/wiki/Carbon","cpk_hex":"909090","density_gcm3":1.821,"melt_c":null,"boil_c":null},{"name":"Nitrogen","symbol":"N","number":7,"atomic_mass":14.007,"category":"diatomic nonmetal","phase":"Gas","density":1.251,"melt":63.15,"boil":77.355,"xpos":15,"ypos":2,"electron_configuration_semantic":"[He] 2s2 2p3","electronegativity_pauling":3.04,"discovered_by":"Daniel Rutherford","summary":"Nitrogen is a chemical element with symbol N and atomic number 7. It is the lightest pnictogen and at room temperature, it is a transparent, odorless diatomic gas. Nitrogen is a common element in the universe, estimated at about seventh in total abundance in the Milky Way and the Solar System.","source":"https://en.wikipedia.org/wiki/Nitrogen","cpk_hex":"3050f8","density_gcm3":0.001251,"melt_c":-209.99999999999997,"boil_c":-195.79499999999996},{"name":"Oxygen","symbol":"O","number":8,"atomic_mass":15.999,"category":"diatomic nonmetal","phase":"Gas","density":1.429,"melt":54.36,"boil":90.188,"xpos":16,"ypos":2,"electron_configuration_semantic":"[He] 2s2 2p4","electronegativity_pauling":3.44,"discovered_by":"Carl Wilhelm Scheele","summary":"Oxygen is a chemical element with symbol O and atomic number 8. It is a member of the chalcogen group on the periodic table and is a highly reactive nonmetal and oxidizing agent that readily forms compounds (notably oxides) with most elements. By mass, oxygen is the third-most abundant element in the universe, after hydrogen and helium.","source":"https://en.wikipedia.org/wiki/Oxygen","cpk_hex":"ff0d0d","density_gcm3":0.0014290000000000001,"melt_c":-218.78999999999996,"boil_c":-182.962},{"name":"Fluorine","symbol":"F","number":9,"atomic_mass":18.9984031636,"category":"diatomic nonmetal","phase":"Gas","density":1.696,"melt":53.48,"boil":85.03,"xpos":17,"ypos":2,"electron_configuration_semantic":"[He] 2s2 2p5","electronegativity_pauling":3.98,"discovered_by":"Andr\u00e9-Marie Amp\u00e8re","summary":"Fluorine is a chemical element with symbol F and atomic number 9. It is the lightest halogen and exists as a highly toxic pale yellow diatomic gas at standard conditions. As the most electronegative element, it is extremely reactive:almost all other elements, including some noble gases, form compounds with fluorine.","source":"https://en.wikipedia.org/wiki/Fluorine","cpk_hex":"90e050","density_gcm3":0.001696,"melt_c":-219.67,"boil_c":-188.11999999999998},{"name":"Neon","symbol":"Ne","number":10,"atomic_mass":20.17976,"category":"noble gas","phase":"Gas","density":0.9002,"melt":24.56,"boil":27.104,"xpos":18,"ypos":2,"electron_configuration_semantic":"[He] 2s2 2p6","electronegativity_pauling":null,"discovered_by":"Morris Travers","summary":"Neon is a chemical element with symbol Ne and atomic number 10. It is in group 18 (noble gases) of the periodic table. Neon is a colorless, odorless, inert monatomic gas under standard conditions, with about two-thirds the density of air.","source":"https://en.wikipedia.org/wiki/Neon","cpk_hex":"b3e3f5","density_gcm3":0.0009002,"melt_c":-248.58999999999997,"boil_c":-246.046},{"name":"Sodium","symbol":"Na","number":11,"atomic_mass":22.989769282,"category":"alkali metal","phase":"Solid","density":0.968,"melt":370.944,"boil":1156.09,"xpos":1,"ypos":3,"electron_configuration_semantic":"[Ne] 3s1","electronegativity_pauling":0.93,"discovered_by":"Humphry Davy","summary":"Sodium /\u02c8so\u028adi\u0259m/ is a chemical element with symbol Na (from Ancient Greek \u039d\u03ac\u03c4\u03c1\u03b9\u03bf) and atomic number 11. It is a soft, silver-white, highly reactive metal. In the Periodic table it is in column 1 (alkali metals), and shares with the other six elements in that column that it has a single electron in its outer shell, which it readily donates, creating a positively charged atom - a cation.","source":"https://en.wikipedia.org/wiki/Sodium","cpk_hex":"ab5cf2","density_gcm3":0.968,"melt_c":97.79400000000004,"boil_c":882.9399999999999},{"name":"Magnesium","symbol":"Mg","number":12,"atomic_mass":24.305,"category":"alkaline earth metal","phase":"Solid","density":1.738,"melt":923,"boil":1363,"xpos":2,"ypos":3,"electron_configuration_semantic":"[Ne] 3s2","electronegativity_pauling":1.31,"discovered_by":"Joseph Black","summary":"Magnesium is a chemical element with symbol Mg and atomic number 12. It is a shiny gray solid which bears a close physical resemblance to the other five elements in the second column (Group 2, or alkaline earth metals) of the periodic table:they each have the same electron configuration in their outer electron shell producing a similar crystal structure. Magnesium is the ninth most abundant element in the universe.","source":"https://en.wikipedia.org/wiki/Magnesium","cpk_hex":"8aff00","density_gcm3":1.738,"melt_c":649.85,"boil_c":1089.85},{"name":"Aluminium","symbol":"Al","number":13,"atomic_mass":26.98153857,"category":"post-transition metal","phase":"Solid","density":2.7,"melt":933.47,"boil":2743,"xpos":13,"ypos":3,"electron_configuration_semantic":"[Ne] 3s2 3p1","electronegativity_pauling":1.61,"discovered_by":null,"summary":"Aluminium (or aluminum; see different endings) is a chemical element in the boron group with symbol Al and atomic number 13. It is a silvery-white, soft, nonmagnetic, ductile metal. Aluminium is the third most abundant element (after oxygen and silicon), and the most abundant metal, in the Earth's crust.","source":"https://en.wikipedia.org/wiki/Aluminium","cpk_hex":"bfa6a6","density_gcm3":2.7,"melt_c":660.32,"boil_c":2469.85},{"name":"Silicon","symbol":"Si","number":14,"atomic_mass":28.085,"category":"metalloid","phase":"Solid","density":2.329,"melt":1687,"boil":3538,"xpos":14,"ypos":3,"electron_configuration_semantic":"[Ne] 3s2 3p2","electronegativity_pauling":1.9,"discovered_by":"J\u00f6ns Jacob Berzelius","summary":"Silicon is a chemical element with symbol Si and atomic number 14. It is a tetravalent metalloid, more reactive than germanium, the metalloid directly below it in the table. Controversy about silicon's character dates to its discovery.","source":"https://en.wikipedia.org/wiki/Silicon","cpk_hex":"f0c8a0","density_gcm3":2.329,"melt_c":1413.85,"boil_c":3264.85},{"name":"Phosphorus","symbol":"P","number":15,"atomic_mass":30.9737619985,"category":"polyatomic nonmetal","phase":"Solid","density":1.823,"melt":null,"boil":null,"xpos":15,"ypos":3,"electron_configuration_semantic":"[Ne] 3s2 3p3","electronegativity_pauling":2.19,"discovered_by":"Hennig Brand","summary":"Phosphorus is a chemical element with symbol P and atomic number 15. As an element, phosphorus exists in two major forms\u2014white phosphorus and red phosphorus\u2014but due to its high reactivity, phosphorus is never found as a free element on Earth. Instead phosphorus-containing minerals are almost always present in their maximally oxidised state, as inorganic phosphate rocks.","source":"https://en.wikipedia.org/wiki/Phosphorus","cpk_hex":"ff8000","density_gcm3":1.823,"melt_c":null,"boil_c":null},{"name":"Sulfur","symbol":"S","number":16,"atomic_mass":32.06,"category":"polyatomic nonmetal","phase":"Solid","density":2.07,"melt":388.36,"boil":717.8,"xpos":16,"ypos":3,"electron_configuration_semantic":"[Ne] 3s2 3p4","electronegativity_pauling":2.58,"discovered_by":"Ancient china","summary":"Sulfur or sulphur (see spelling differences) is a chemical element with symbol S and atomic number 16. It is an abundant, multivalent non-metal. Under normal conditions, sulfur atoms form cyclic octatomic molecules with chemical formula S8.","source":"https://en.wikipedia.org/wiki/Sulfur","cpk_hex":"ffff30","density_gcm3":2.07,"melt_c":115.21000000000004,"boil_c":444.65},{"name":"Chlorine","symbol":"Cl","number":17,"atomic_mass":35.45,"category":"diatomic nonmetal","phase":"Gas","density":3.2,"melt":171.6,"boil":239.11,"xpos":17,"ypos":3,"electron_configuration_semantic":"[Ne] 3s2 3p5","electronegativity_pauling":3.16,"discovered_by":"Carl Wilhelm Scheele","summary":"Chlorine is a chemical element with symbol Cl and atomic number 17. It also has a relative atomic mass of 35.5. Chlorine is in the halogen group (17) and is the second lightest halogen following fluorine.","source":"https://en.wikipedia.org/wiki/Chlorine","cpk_hex":"1ff01f","density_gcm3":0.0032,"melt_c":-101.54999999999998,"boil_c":-34.039999999999964},{"name":"Argon","symbol":"Ar","number":18,"atomic_mass":39.9481,"category":"noble gas","phase":"Gas","density":1.784,"melt":83.81,"boil":87.302,"xpos":18,"ypos":3,"electron_configuration_semantic":"[Ne] 3s2 3p6","electronegativity_pauling":null,"discovered_by":"Lord Rayleigh","summary":"Argon is a chemical element with symbol Ar and atomic number 18. It is in group 18 of the periodic table and is a noble gas. Argon is the third most common gas in the Earth's atmosphere, at 0.934% (9,340 ppmv), making it over twice as abundant as the next most common atmospheric gas, water vapor (which averages about 4000 ppmv, but varies greatly), and 23 times as abundant as the next most common non-condensing atmospheric gas, carbon dioxide (400 ppmv), and more than 500 times as abundant as the next most common noble gas, neon (18 ppmv).","source":"https://en.wikipedia.org/wiki/Argon","cpk_hex":"80d1e3","density_gcm3":0.001784,"melt_c":-189.33999999999997,"boil_c":-185.84799999999996},{"name":"Potassium","symbol":"K","number":19,"atomic_mass":39.09831,"category":"alkali metal","phase":"Solid","density":0.862,"melt":336.7,"boil":1032,"xpos":1,"ypos":4,"electron_configuration_semantic":"[Ar] 4s1","electronegativity_pauling":0.82,"discovered_by":"Humphry Davy","summary":"Potassium is a chemical element with symbol K (derived from Neo-Latin, kalium) and atomic number 19. It was first isolated from potash, the ashes of plants, from which its name is derived. In the Periodic table, potassium is one of seven elements in column (group) 1 (alkali metals):they all have a single valence electron in their outer electron shell, which they readily give up to create an atom with a positive charge - a cation, and combine with anions to form salts.","source":"https://en.wikipedia.org/wiki/Potassium","cpk_hex":"8f40d4","density_gcm3":0.862,"melt_c":63.55000000000001,"boil_c":758.85},{"name":"Calcium","symbol":"Ca","number":20,"atomic_mass":40.0784,"category":"alkaline earth metal","phase":"Solid","density":1.55,"melt":1115,"boil":1757,"xpos":2,"ypos":4,"electron_configuration_semantic":"[Ar] 4s2","electronegativity_pauling":1,"discovered_by":"Humphry Davy","summary":"Calcium is a chemical element with symbol Ca and atomic number 20. Calcium is a soft gray alkaline earth metal, fifth-most-abundant element by mass in the Earth's crust. The ion Ca2+ is also the fifth-most-abundant dissolved ion in seawater by both molarity and mass, after sodium, chloride, magnesium, and sulfate.","source":"https://en.wikipedia.org/wiki/Calcium","cpk_hex":"3dff00","density_gcm3":1.55,"melt_c":841.85,"boil_c":1483.85},{"name":"Scandium","symbol":"Sc","number":21,"atomic_mass":44.9559085,"category":"transition metal","phase":"Solid","density":2.985,"melt":1814,"boil":3109,"xpos":3,"ypos":4,"electron_configuration_semantic":"[Ar] 3d1 4s2","electronegativity_pauling":1.36,"discovered_by":"Lars Fredrik Nilson","summary":"Scandium is a chemical element with symbol Sc and atomic number 21. A silvery-white metallic d-block element, it has historically been sometimes classified as a rare earth element, together with yttrium and the lanthanoids. It was discovered in 1879 by spectral analysis of the minerals euxenite and gadolinite from Scandinavia.","source":"https://en.wikipedia.org/wiki/Scandium","cpk_hex":"e6e6e6","density_gcm3":2.985,"melt_c":1540.85,"boil_c":2835.85},{"name":"Titanium","symbol":"Ti","number":22,"atomic_mass":47.8671,"category":"transition metal","phase":"Solid","density":4.506,"melt":1941,"boil":3560,"xpos":4,"ypos":4,"electron_configuration_semantic":"[Ar] 3d2 4s2","electronegativity_pauling":1.54,"discovered_by":"William Gregor","summary":"Titanium is a chemical element with symbol Ti and atomic number 22. It is a lustrous transition metal with a silver color, low density and high strength. It is highly resistant to corrosion in sea water, aqua regia and chlorine.","source":"https://en.wikipedia.org/wiki/Titanium","cpk_hex":"bfc2c7","density_gcm3":4.506,"melt_c":1667.85,"boil_c":3286.85},{"name":"Vanadium","symbol":"V","number":23,"atomic_mass":50.94151,"category":"transition metal","phase":"Solid","density":6,"melt":2183,"boil":3680,"xpos":5,"ypos":4,"electron_configuration_semantic":"[Ar] 3d3 4s2","electronegativity_pauling":1.63,"discovered_by":"Andr\u00e9s Manuel del R\u00edo","summary":"Vanadium is a chemical element with symbol V and atomic number 23. It is a hard, silvery grey, ductile and malleable transition metal. The element is found only in chemically combined form in nature, but once isolated artificially, the formation of an oxide layer stabilizes the free metal somewhat against further oxidation.","source":"https://en.wikipedia.org/wiki/Vanadium","cpk_hex":"a6a6ab","density_gcm3":6,"melt_c":1909.85,"boil_c":3406.85},{"name":"Chromium","symbol":"Cr","number":24,"atomic_mass":51.99616,"category":"transition metal","phase":"Solid","density":7.19,"melt":2180,"boil":2944,"xpos":6,"ypos":4,"electron_configuration_semantic":"[Ar] 3d5 4s1","electronegativity_pauling":1.66,"discovered_by":"Louis Nicolas Vauquelin","summary":"Chromium is a chemical element with symbol Cr and atomic number 24. It is the first element in Group 6. It is a steely-gray, lustrous, hard and brittle metal which takes a high polish, resists tarnishing, and has a high melting point.","source":"https://en.wikipedia.org/wiki/Chromium","cpk_hex":"8a99c7","density_gcm3":7.19,"melt_c":1906.85,"boil_c":2670.85},{"name":"Manganese","symbol":"Mn","number":25,"atomic_mass":54.9380443,"category":"transition metal","phase":"Solid","density":7.21,"melt":1519,"boil":2334,"xpos":7,"ypos":4,"electron_configuration_semantic":"[Ar] 3d5 4s2","electronegativity_pauling":1.55,"discovered_by":"Torbern Olof Bergman","summary":"Manganese is a chemical element with symbol Mn and atomic number 25. It is not found as a free element in nature; it is often found in combination with iron, and in many minerals. Manganese is a metal with important industrial metal alloy uses, particularly in stainless steels.","source":"https://en.wikipedia.org/wiki/Manganese","cpk_hex":"9c7ac7","density_gcm3":7.21,"melt_c":1245.85,"boil_c":2060.85},{"name":"Iron","symbol":"Fe","number":26,"atomic_mass":55.8452,"category":"transition metal","phase":"Solid","density":7.874,"melt":1811,"boil":3134,"xpos":8,"ypos":4,"electron_configuration_semantic":"[Ar] 3d6 4s2","electronegativity_pauling":1.83,"discovered_by":"5000 BC","summary":"Iron is a chemical element with symbol Fe (from Latin:ferrum) and atomic number 26. It is a metal in the first transition series. It is by mass the most common element on Earth, forming much of Earth's outer and inner core.","source":"https://en.wikipedia.org/wiki/Iron","cpk_hex":"e06633","density_gcm3":7.874,"melt_c":1537.85,"boil_c":2860.85},{"name":"Cobalt","symbol":"Co","number":27,"atomic_mass":58.9331944,"category":"transition metal","phase":"Solid","density":8.9,"melt":1768,"boil":3200,"xpos":9,"ypos":4,"electron_configuration_semantic":"[Ar] 3d7 4s2","electronegativity_pauling":1.88,"discovered_by":"Georg Brandt","summary":"Cobalt is a chemical element with symbol Co and atomic number 27. Like nickel, cobalt in the Earth's crust is found only in chemically combined form, save for small deposits found in alloys of natural meteoric iron. The free element, produced by reductive smelting, is a hard, lustrous, silver-gray metal.","source":"https://en.wikipedia.org/wiki/Cobalt","cpk_hex":"f090a0","density_gcm3":8.9,"melt_c":1494.85,"boil_c":2926.85},{"name":"Nickel","symbol":"Ni","number":28,"atomic_mass":58.69344,"category":"transition metal","phase":"Solid","density":8.908,"melt":1728,"boil":3003,"xpos":10,"ypos":4,"electron_configuration_semantic":"[Ar] 3d8 4s2","electronegativity_pauling":1.91,"discovered_by":"Axel Fredrik Cronstedt","summary":"Nickel is a chemical element with symbol Ni and atomic number 28. It is a silvery-white lustrous metal with a slight golden tinge. Nickel belongs to the transition metals and is hard and ductile.","source":"https://en.wikipedia.org/wiki/Nickel","cpk_hex":"50d050","density_gcm3":8.908,"melt_c":1454.85,"boil_c":2729.85},{"name":"Copper","symbol":"Cu","number":29,"atomic_mass":63.5463,"category":"transition metal","phase":"Solid","density":8.96,"melt":1357.77,"boil":2835,"xpos":11,"ypos":4,"electron_configuration_semantic":"[Ar] 3d10 4s1","electronegativity_pauling":1.9,"discovered_by":"Middle East","summary":"Copper is a chemical element with symbol Cu (from Latin:cuprum) and atomic number 29. It is a soft, malleable and ductile metal with very high thermal and electrical conductivity. A freshly exposed surface of pure copper has a reddish-orange color.","source":"https://en.wikipedia.org/wiki/Copper","cpk_hex":"c88033","density_gcm3":8.96,"melt_c":1084.62,"boil_c":2561.85},{"name":"Zinc","symbol":"Zn","number":30,"atomic_mass":65.382,"category":"transition metal","phase":"Solid","density":7.14,"melt":692.68,"boil":1180,"xpos":12,"ypos":4,"electron_configuration_semantic":"[Ar] 3d10 4s2","electronegativity_pauling":1.65,"discovered_by":"India","summary":"Zinc, in commerce also spelter, is a chemical element with symbol Zn and atomic number 30. It is the first element of group 12 of the periodic table. In some respects zinc is chemically similar to magnesium:its ion is of similar size and its only common oxidation state is +2.","source":"https://en.wikipedia.org/wiki/Zinc","cpk_hex":"7d80b0","density_gcm3":7.14,"melt_c":419.53,"boil_c":906.85},{"name":"Gallium","symbol":"Ga","number":31,"atomic_mass":69.7231,"category":"post-transition metal","phase":"Solid","density":5.91,"melt":302.9146,"boil":2673,"xpos":13,"ypos":4,"electron_configuration_semantic":"[Ar] 3d10 4s2 4p1","electronegativity_pauling":1.81,"discovered_by":"Lecoq de Boisbaudran","summary":"Gallium is a chemical element with symbol Ga and atomic number 31. Elemental gallium does not occur in free form in nature, but as the gallium(III) compounds that are in trace amounts in zinc ores and in bauxite. Gallium is a soft, silvery metal, and elemental gallium is a brittle solid at low temperatures, and melts at 29.76 \u00b0C (85.57 \u00b0F) (slightly above room temperature).","source":"https://en.wikipedia.org/wiki/Gallium","cpk_hex":"c28f8f","density_gcm3":5.91,"melt_c":29.76460000000003,"boil_c":2399.85},{"name":"Germanium","symbol":"Ge","number":32,"atomic_mass":72.6308,"category":"metalloid","phase":"Solid","density":5.323,"melt":1211.4,"boil":3106,"xpos":14,"ypos":4,"electron_configuration_semantic":"[Ar] 3d10 4s2 4p2","electronegativity_pauling":2.01,"discovered_by":"Clemens Winkler","summary":"Germanium is a chemical element with symbol Ge and atomic number 32. It is a lustrous, hard, grayish-white metalloid in the carbon group, chemically similar to its group neighbors tin and silicon. Purified germanium is a semiconductor, with an appearance most similar to elemental silicon.","source":"https://en.wikipedia.org/wiki/Germanium","cpk_hex":"668f8f","density_gcm3":5.323,"melt_c":938.2500000000001,"boil_c":2832.85},{"name":"Arsenic","symbol":"As","number":33,"atomic_mass":74.9215956,"category":"metalloid","phase":"Solid","density":5.727,"melt":null,"boil":null,"xpos":15,"ypos":4,"electron_configuration_semantic":"[Ar] 3d10 4s2 4p3","electronegativity_pauling":2.18,"discovered_by":"Bronze Age","summary":"Arsenic is a chemical element with symbol As and atomic number 33. Arsenic occurs in many minerals, usually in conjunction with sulfur and metals, and also as a pure elemental crystal. Arsenic is a metalloid.","source":"https://en.wikipedia.org/wiki/Arsenic","cpk_hex":"bd80e3","density_gcm3":5.727,"melt_c":null,"boil_c":null},{"name":"Selenium","symbol":"Se","number":34,"atomic_mass":78.9718,"category":"polyatomic nonmetal","phase":"Solid","density":4.81,"melt":494,"boil":958,"xpos":16,"ypos":4,"electron_configuration_semantic":"[Ar] 3d10 4s2 4p4","electronegativity_pauling":2.55,"discovered_by":"J\u00f6ns Jakob Berzelius","summary":"Selenium is a chemical element with symbol Se and atomic number 34. It is a nonmetal with properties that are intermediate between those of its periodic table column-adjacent chalcogen elements sulfur and tellurium. It rarely occurs in its elemental state in nature, or as pure ore compounds.","source":"https://en.wikipedia.org/wiki/Selenium","cpk_hex":"ffa100","density_gcm3":4.81,"melt_c":220.85000000000002,"boil_c":684.85},{"name":"Bromine","symbol":"Br","number":35,"atomic_mass":79.904,"category":"diatomic nonmetal","phase":"Liquid","density":3.1028,"melt":265.8,"boil":332,"xpos":17,"ypos":4,"electron_configuration_semantic":"[Ar] 3d10 4s2 4p5","electronegativity_pauling":2.96,"discovered_by":"Antoine J\u00e9r\u00f4me Balard","summary":"Bromine (from Ancient Greek:\u03b2\u03c1\u1ff6\u03bc\u03bf\u03c2, br\u00f3mos, meaning \"stench\") is a chemical element with symbol Br, and atomic number 35. It is a halogen. The element was isolated independently by two chemists, Carl Jacob L\u00f6wig and Antoine Jerome Balard, in 1825\u20131826.","source":"https://en.wikipedia.org/wiki/Bromine","cpk_hex":"a62929","density_gcm3":3.1028,"melt_c":-7.349999999999966,"boil_c":58.85000000000002},{"name":"Krypton","symbol":"Kr","number":36,"atomic_mass":83.7982,"category":"noble gas","phase":"Gas","density":3.749,"melt":115.78,"boil":119.93,"xpos":18,"ypos":4,"electron_configuration_semantic":"[Ar] 3d10 4s2 4p6","electronegativity_pauling":3,"discovered_by":"William Ramsay","summary":"Krypton (from Greek:\u03ba\u03c1\u03c5\u03c0\u03c4\u03cc\u03c2 kryptos \"the hidden one\") is a chemical element with symbol Kr and atomic number 36. It is a member of group 18 (noble gases) elements. A colorless, odorless, tasteless noble gas, krypton occurs in trace amounts in the atmosphere, is isolated by fractionally distilling liquefied air, and is often used with other rare gases in fluorescent lamps.","source":"https://en.wikipedia.org/wiki/Krypton","cpk_hex":"5cb8d1","density_gcm3":0.003749,"melt_c":-157.36999999999998,"boil_c":-153.21999999999997},{"name":"Rubidium","symbol":"Rb","number":37,"atomic_mass":85.46783,"category":"alkali metal","phase":"Solid","density":1.532,"melt":312.45,"boil":961,"xpos":1,"ypos":5,"electron_configuration_semantic":"[Kr] 5s1","electronegativity_pauling":0.82,"discovered_by":"Robert Bunsen","summary":"Rubidium is a chemical element with symbol Rb and atomic number 37. Rubidium is a soft, silvery-white metallic element of the alkali metal group, with an atomic mass of 85.4678. Elemental rubidium is highly reactive, with properties similar to those of other alkali metals, such as very rapid oxidation in air.","source":"https://en.wikipedia.org/wiki/Rubidium","cpk_hex":"702eb0","density_gcm3":1.532,"melt_c":39.30000000000001,"boil_c":687.85},{"name":"Strontium","symbol":"Sr","number":38,"atomic_mass":87.621,"category":"alkaline earth metal","phase":"Solid","density":2.64,"melt":1050,"boil":1650,"xpos":2,"ypos":5,"electron_configuration_semantic":"[Kr] 5s2","electronegativity_pauling":0.95,"discovered_by":"William Cruickshank (chemist)","summary":"Strontium is a chemical element with symbol Sr and atomic number 38. An alkaline earth metal, strontium is a soft silver-white or yellowish metallic element that is highly reactive chemically. The metal turns yellow when it is exposed to air.","source":"https://en.wikipedia.org/wiki/Strontium","cpk_hex":"00ff00","density_gcm3":2.64,"melt_c":776.85,"boil_c":1376.85},{"name":"Yttrium","symbol":"Y","number":39,"atomic_mass":88.905842,"category":"transition metal","phase":"Solid","density":4.472,"melt":1799,"boil":3203,"xpos":3,"ypos":5,"electron_configuration_semantic":"[Kr] 4d1 5s2","electronegativity_pauling":1.22,"discovered_by":"Johan Gadolin","summary":"Yttrium is a chemical element with symbol Y and atomic number 39. It is a silvery-metallic transition metal chemically similar to the lanthanides and it has often been classified as a \"rare earth element\". Yttrium is almost always found combined with the lanthanides in rare earth minerals and is never found in nature as a free element.","source":"https://en.wikipedia.org/wiki/Yttrium","cpk_hex":"94ffff","density_gcm3":4.472,"melt_c":1525.85,"boil_c":2929.85},{"name":"Zirconium","symbol":"Zr","number":40,"atomic_mass":91.2242,"category":"transition metal","phase":"Solid","density":6.52,"melt":2128,"boil":4650,"xpos":4,"ypos":5,"electron_configuration_semantic":"[Kr] 4d2 5s2","electronegativity_pauling":1.33,"discovered_by":"Martin Heinrich Klaproth","summary":"Zirconium is a chemical element with symbol Zr and atomic number 40. The name of zirconium is taken from the name of the mineral zircon, the most important source of zirconium. The word zircon comes from the Persian word zargun \u0632\u0631\u06af\u0648\u0646, meaning \"gold-colored\".","source":"https://en.wikipedia.org/wiki/Zirconium","cpk_hex":"94e0e0","density_gcm3":6.52,"melt_c":1854.85,"boil_c":4376.85},{"name":"Niobium","symbol":"Nb","number":41,"atomic_mass":92.906372,"category":"transition metal","phase":"Solid","density":8.57,"melt":2750,"boil":5017,"xpos":5,"ypos":5,"electron_configuration_semantic":"[Kr] 4d4 5s1","electronegativity_pauling":1.6,"discovered_by":"Charles Hatchett","summary":"Niobium, formerly columbium, is a chemical element with symbol Nb (formerly Cb) and atomic number 41. It is a soft, grey, ductile transition metal, which is often found in the pyrochlore mineral, the main commercial source for niobium, and columbite. The name comes from Greek mythology:Niobe, daughter of Tantalus since it is so similar to tantalum.","source":"https://en.wikipedia.org/wiki/Niobium","cpk_hex":"73c2c9","density_gcm3":8.57,"melt_c":2476.85,"boil_c":4743.85},{"name":"Molybdenum","symbol":"Mo","number":42,"atomic_mass":95.951,"category":"transition metal","phase":"Solid","density":10.28,"melt":2896,"boil":4912,"xpos":6,"ypos":5,"electron_configuration_semantic":"[Kr] 4d5 5s1","electronegativity_pauling":2.16,"discovered_by":"Carl Wilhelm Scheele","summary":"Molybdenum is a chemical element with symbol Mo and atomic number 42. The name is from Neo-Latin molybdaenum, from Ancient Greek \u039c\u03cc\u03bb\u03c5\u03b2\u03b4\u03bf\u03c2 molybdos, meaning lead, since its ores were confused with lead ores. Molybdenum minerals have been known throughout history, but the element was discovered (in the sense of differentiating it as a new entity from the mineral salts of other metals) in 1778 by Carl Wilhelm Scheele.","source":"https://en.wikipedia.org/wiki/Molybdenum","cpk_hex":"54b5b5","density_gcm3":10.28,"melt_c":2622.85,"boil_c":4638.85},{"name":"Technetium","symbol":"Tc","number":43,"atomic_mass":98,"category":"transition metal","phase":"Solid","density":11,"melt":2430,"boil":4538,"xpos":7,"ypos":5,"electron_configuration_semantic":"[Kr] 4d5 5s2","electronegativity_pauling":1.9,"discovered_by":"Emilio Segr\u00e8","summary":"Technetium (/t\u025bk\u02c8ni\u02d0\u0283i\u0259m/) is a chemical element with symbol Tc and atomic number 43. It is the element with the lowest atomic number in the periodic table that has no stable isotopes:every form of it is radioactive. Nearly all technetium is produced synthetically, and only minute amounts are found in nature.","source":"https://en.wikipedia.org/wiki/Technetium","cpk_hex":"3b9e9e","density_gcm3":11,"melt_c":2156.85,"boil_c":4264.85},{"name":"Ruthenium","symbol":"Ru","number":44,"atomic_mass":101.072,"category":"transition metal","phase":"Solid","density":12.45,"melt":2607,"boil":4423,"xpos":8,"ypos":5,"electron_configuration_semantic":"[Kr] 4d7 5s1","electronegativity_pauling":2.2,"discovered_by":"Karl Ernst Claus","summary":"Ruthenium is a chemical element with symbol Ru and atomic number 44. It is a rare transition metal belonging to the platinum group of the periodic table. Like the other metals of the platinum group, ruthenium is inert to most other chemicals.","source":"https://en.wikipedia.org/wiki/Ruthenium","cpk_hex":"248f8f","density_gcm3":12.45,"melt_c":2333.85,"boil_c":4149.85},{"name":"Rhodium","symbol":"Rh","number":45,"atomic_mass":102.905502,"category":"transition metal","phase":"Solid","density":12.41,"melt":2237,"boil":3968,"xpos":9,"ypos":5,"electron_configuration_semantic":"[Kr] 4d8 5s1","electronegativity_pauling":2.28,"discovered_by":"William Hyde Wollaston","summary":"Rhodium is a chemical element with symbol Rh and atomic number 45. It is a rare, silvery-white, hard, and chemically inert transition metal. It is a member of the platinum group.","source":"https://en.wikipedia.org/wiki/Rhodium","cpk_hex":"0a7d8c","density_gcm3":12.41,"melt_c":1963.85,"boil_c":3694.85},{"name":"Palladium","symbol":"Pd","number":46,"atomic_mass":106.421,"category":"transition metal","phase":"Solid","density":12.023,"melt":1828.05,"boil":3236,"xpos":10,"ypos":5,"electron_configuration_semantic":"[Kr] 4d10","electronegativity_pauling":2.2,"discovered_by":"William Hyde Wollaston","summary":"Palladium is a chemical element with symbol Pd and atomic number 46. It is a rare and lustrous silvery-white metal discovered in 1803 by William Hyde Wollaston. He named it after the asteroid Pallas, which was itself named after the epithet of the Greek goddess Athena, acquired by her when she slew Pallas.","source":"https://en.wikipedia.org/wiki/Palladium","cpk_hex":"006985","density_gcm3":12.023,"melt_c":1554.9,"boil_c":2962.85},{"name":"Silver","symbol":"Ag","number":47,"atomic_mass":107.86822,"category":"transition metal","phase":"Solid","density":10.49,"melt":1234.93,"boil":2435,"xpos":11,"ypos":5,"electron_configuration_semantic":"[Kr] 4d10 5s1","electronegativity_pauling":1.93,"discovered_by":"unknown, before 5000 BC","summary":"Silver is a chemical element with symbol Ag (Greek:\u03ac\u03c1\u03b3\u03c5\u03c1\u03bf\u03c2 \u00e1rguros, Latin:argentum, both from the Indo-European root *h\u2082er\u01f5- for \"grey\" or \"shining\") and atomic number 47. A soft, white, lustrous transition metal, it possesses the highest electrical conductivity, thermal conductivity and reflectivity of any metal. The metal occurs naturally in its pure, free form (native silver), as an alloy with gold and other metals, and in minerals such as argentite and chlorargyrite.","source":"https://en.wikipedia.org/wiki/Silver","cpk_hex":"c0c0c0","density_gcm3":10.49,"melt_c":961.7800000000001,"boil_c":2161.85},{"name":"Cadmium","symbol":"Cd","number":48,"atomic_mass":112.4144,"category":"transition metal","phase":"Solid","density":8.65,"melt":594.22,"boil":1040,"xpos":12,"ypos":5,"electron_configuration_semantic":"[Kr] 4d10 5s2","electronegativity_pauling":1.69,"discovered_by":"Karl Samuel Leberecht Hermann","summary":"Cadmium is a chemical element with symbol Cd and atomic number 48. This soft, bluish-white metal is chemically similar to the two other stable metals in group 12, zinc and mercury. Like zinc, it prefers oxidation state +2 in most of its compounds and like mercury it shows a low melting point compared to transition metals.","source":"https://en.wikipedia.org/wiki/Cadmium","cpk_hex":"ffd98f","density_gcm3":8.65,"melt_c":321.07000000000005,"boil_c":766.85},{"name":"Indium","symbol":"In","number":49,"atomic_mass":114.8181,"category":"post-transition metal","phase":"Solid","density":7.31,"melt":429.7485,"boil":2345,"xpos":13,"ypos":5,"electron_configuration_semantic":"[Kr] 4d10 5s2 5p1","electronegativity_pauling":1.78,"discovered_by":"Ferdinand Reich","summary":"Indium is a chemical element with symbol In and atomic number 49. It is a post-transition metallic element that is rare in Earth's crust. The metal is very soft, malleable and easily fusible, with a melting point higher than sodium, but lower than lithium or tin.","source":"https://en.wikipedia.org/wiki/Indium","cpk_hex":"a67573","density_gcm3":7.31,"melt_c":156.5985,"boil_c":2071.85},{"name":"Tin","symbol":"Sn","number":50,"atomic_mass":118.7107,"category":"post-transition metal","phase":"Solid","density":7.365,"melt":505.08,"boil":2875,"xpos":14,"ypos":5,"electron_configuration_semantic":"[Kr] 4d10 5s2 5p2","electronegativity_pauling":1.96,"discovered_by":"unknown, before 3500 BC","summary":"Tin is a chemical element with the symbol Sn (for Latin:stannum) and atomic number 50. It is a main group metal in group 14 of the periodic table. Tin shows a chemical similarity to both neighboring group-14 elements, germanium and lead, and has two possible oxidation states, +2 and the slightly more stable +4.","source":"https://en.wikipedia.org/wiki/Tin","cpk_hex":"668080","density_gcm3":7.365,"melt_c":231.93,"boil_c":2601.85},{"name":"Antimony","symbol":"Sb","number":51,"atomic_mass":121.7601,"category":"metalloid","phase":"Solid","density":6.697,"melt":903.78,"boil":1908,"xpos":15,"ypos":5,"electron_configuration_semantic":"[Kr] 4d10 5s2 5p3","electronegativity_pauling":2.05,"discovered_by":"unknown, before 3000 BC","summary":"Antimony is a chemical element with symbol Sb (from Latin:stibium) and atomic number 51. A lustrous gray metalloid, it is found in nature mainly as the sulfide mineral stibnite (Sb2S3). Antimony compounds have been known since ancient times and were used for cosmetics; metallic antimony was also known, but it was erroneously identified as lead upon its discovery.","source":"https://en.wikipedia.org/wiki/Antimony","cpk_hex":"9e63b5","density_gcm3":6.697,"melt_c":630.63,"boil_c":1634.85},{"name":"Tellurium","symbol":"Te","number":52,"atomic_mass":127.603,"category":"metalloid","phase":"Solid","density":6.24,"melt":722.66,"boil":1261,"xpos":16,"ypos":5,"electron_configuration_semantic":"[Kr] 4d10 5s2 5p4","electronegativity_pauling":2.1,"discovered_by":"Franz-Joseph M\u00fcller von Reichenstein","summary":"Tellurium is a chemical element with symbol Te and atomic number 52. It is a brittle, mildly toxic, rare, silver-white metalloid. Tellurium is chemically related to selenium and sulfur.","source":"https://en.wikipedia.org/wiki/Tellurium","cpk_hex":"d47a00","density_gcm3":6.24,"melt_c":449.51,"boil_c":987.85},{"name":"Iodine","symbol":"I","number":53,"atomic_mass":126.904473,"category":"diatomic nonmetal","phase":"Solid","density":4.933,"melt":386.85,"boil":457.4,"xpos":17,"ypos":5,"electron_configuration_semantic":"[Kr] 4d10 5s2 5p5","electronegativity_pauling":2.66,"discovered_by":"Bernard Courtois","summary":"Iodine is a chemical element with symbol I and atomic number 53. The name is from Greek \u1f30\u03bf\u03b5\u03b9\u03b4\u03ae\u03c2 ioeid\u0113s, meaning violet or purple, due to the color of iodine vapor. Iodine and its compounds are primarily used in nutrition, and industrially in the production of acetic acid and certain polymers.","source":"https://en.wikipedia.org/wiki/Iodine","cpk_hex":"940094","density_gcm3":4.933,"melt_c":113.70000000000005,"boil_c":184.25},{"name":"Xenon","symbol":"Xe","number":54,"atomic_mass":131.2936,"category":"noble gas","phase":"Gas","density":5.894,"melt":161.4,"boil":165.051,"xpos":18,"ypos":5,"electron_configuration_semantic":"[Kr] 4d10 5s2 5p6","electronegativity_pauling":2.6,"discovered_by":"William Ramsay","summary":"Xenon is a chemical element with symbol Xe and atomic number 54. It is a colorless, dense, odorless noble gas, that occurs in the Earth's atmosphere in trace amounts. Although generally unreactive, xenon can undergo a few chemical reactions such as the formation of xenon hexafluoroplatinate, the first noble gas compound to be synthesized.","source":"https://en.wikipedia.org/wiki/Xenon","cpk_hex":"429eb0","density_gcm3":0.005894,"melt_c":-111.74999999999997,"boil_c":-108.09899999999999},{"name":"Cesium","symbol":"Cs","number":55,"atomic_mass":132.905451966,"category":"alkali metal","phase":"Solid","density":1.93,"melt":301.7,"boil":944,"xpos":1,"ypos":6,"electron_configuration_semantic":"[Xe] 6s1","electronegativity_pauling":0.79,"discovered_by":"Robert Bunsen","summary":"Caesium or cesium is a chemical element with symbol Cs and atomic number 55. It is a soft, silvery-gold alkali metal with a melting point of 28 \u00b0C (82 \u00b0F), which makes it one of only five elemental metals that are liquid at or near room temperature. Caesium is an alkali metal and has physical and chemical properties similar to those of rubidium and potassium.","source":"https://en.wikipedia.org/wiki/Cesium","cpk_hex":"57178f","density_gcm3":1.93,"melt_c":28.55000000000001,"boil_c":670.85},{"name":"Barium","symbol":"Ba","number":56,"atomic_mass":137.3277,"category":"alkaline earth metal","phase":"Solid","density":3.51,"melt":1000,"boil":2118,"xpos":2,"ypos":6,"electron_configuration_semantic":"[Xe] 6s2","electronegativity_pauling":0.89,"discovered_by":"Carl Wilhelm Scheele","summary":"Barium is a chemical element with symbol Ba and atomic number 56. It is the fifth element in Group 2, a soft silvery metallic alkaline earth metal. Because of its high chemical reactivity barium is never found in nature as a free element.","source":"https://en.wikipedia.org/wiki/Barium","cpk_hex":"00c900","density_gcm3":3.51,"melt_c":726.85,"boil_c":1844.85},{"name":"Lanthanum","symbol":"La","number":57,"atomic_mass":138.905477,"category":"lanthanide","phase":"Solid","density":6.162,"melt":1193,"boil":3737,"xpos":3,"ypos":9,"electron_configuration_semantic":"[Xe] 5d16s2","electronegativity_pauling":1.1,"discovered_by":"Carl Gustaf Mosander","summary":"Lanthanum is a soft, ductile, silvery-white metallic chemical element with symbol La and atomic number 57. It tarnishes rapidly when exposed to air and is soft enough to be cut with a knife. It gave its name to the lanthanide series, a group of 15 similar elements between lanthanum and lutetium in the periodic table:it is also sometimes considered the first element of the 6th-period transition metals.","source":"https://en.wikipedia.org/wiki/Lanthanum","cpk_hex":"70d4ff","density_gcm3":6.162,"melt_c":919.85,"boil_c":3463.85},{"name":"Cerium","symbol":"Ce","number":58,"atomic_mass":140.1161,"category":"lanthanide","phase":"Solid","density":6.77,"melt":1068,"boil":3716,"xpos":4,"ypos":9,"electron_configuration_semantic":"[Xe] 4f1 5d1 6s2","electronegativity_pauling":1.12,"discovered_by":"Martin Heinrich Klaproth","summary":"Cerium is a chemical element with symbol Ce and atomic number 58. It is a soft, silvery, ductile metal which easily oxidizes in air. Cerium was named after the dwarf planet Ceres (itself named after the Roman goddess of agriculture).","source":"https://en.wikipedia.org/wiki/Cerium","cpk_hex":"ffffc7","density_gcm3":6.77,"melt_c":794.85,"boil_c":3442.85},{"name":"Praseodymium","symbol":"Pr","number":59,"atomic_mass":140.907662,"category":"lanthanide","phase":"Solid","density":6.77,"melt":1208,"boil":3403,"xpos":5,"ypos":9,"electron_configuration_semantic":"[Xe] 4f3 6s2","electronegativity_pauling":1.13,"discovered_by":"Carl Auer von Welsbach","summary":"Praseodymium is a chemical element with symbol Pr and atomic number 59. Praseodymium is a soft, silvery, malleable and ductile metal in the lanthanide group. It is valued for its magnetic, electrical, chemical, and optical properties.","source":"https://en.wikipedia.org/wiki/Praseodymium","cpk_hex":"d9ffc7","density_gcm3":6.77,"melt_c":934.85,"boil_c":3129.85},{"name":"Neodymium","symbol":"Nd","number":60,"atomic_mass":144.2423,"category":"lanthanide","phase":"Solid","density":7.01,"melt":1297,"boil":3347,"xpos":6,"ypos":9,"electron_configuration_semantic":"[Xe] 4f4 6s2","electronegativity_pauling":1.14,"discovered_by":"Carl Auer von Welsbach","summary":"Neodymium is a chemical element with symbol Nd and atomic number 60. It is a soft silvery metal that tarnishes in air. Neodymium was discovered in 1885 by the Austrian chemist Carl Auer von Welsbach.","source":"https://en.wikipedia.org/wiki/Neodymium","cpk_hex":"c7ffc7","density_gcm3":7.01,"melt_c":1023.85,"boil_c":3073.85},{"name":"Promethium","symbol":"Pm","number":61,"atomic_mass":145,"category":"lanthanide","phase":"Solid","density":7.26,"melt":1315,"boil":3273,"xpos":7,"ypos":9,"electron_configuration_semantic":"[Xe] 4f5 6s2","electronegativity_pauling":1.13,"discovered_by":"Chien Shiung Wu","summary":"Promethium, originally prometheum, is a chemical element with the symbol Pm and atomic number 61. All of its isotopes are radioactive; it is one of only two such elements that are followed in the periodic table by elements with stable forms, a distinction shared with technetium. Chemically, promethium is a lanthanide, which forms salts when combined with other elements.","source":"https://en.wikipedia.org/wiki/Promethium","cpk_hex":"a3ffc7","density_gcm3":7.26,"melt_c":1041.85,"boil_c":2999.85},{"name":"Samarium","symbol":"Sm","number":62,"atomic_mass":150.362,"category":"lanthanide","phase":"Solid","density":7.52,"melt":1345,"boil":2173,"xpos":8,"ypos":9,"electron_configuration_semantic":"[Xe] 4f6 6s2","electronegativity_pauling":1.17,"discovered_by":"Lecoq de Boisbaudran","summary":"Samarium is a chemical element with symbol Sm and atomic number 62. It is a moderately hard silvery metal that readily oxidizes in air. Being a typical member of the lanthanide series, samarium usually assumes the oxidation state +3.","source":"https://en.wikipedia.org/wiki/Samarium","cpk_hex":"8fffc7","density_gcm3":7.52,"melt_c":1071.85,"boil_c":1899.85},{"name":"Europium","symbol":"Eu","number":63,"atomic_mass":151.9641,"category":"lanthanide","phase":"Solid","density":5.264,"melt":1099,"boil":1802,"xpos":9,"ypos":9,"electron_configuration_semantic":"[Xe] 4f7 6s2","electronegativity_pauling":1.2,"discovered_by":"Eug\u00e8ne-Anatole Demar\u00e7ay","summary":"Europium is a chemical element with symbol Eu and atomic number 63. It was isolated in 1901 and is named after the continent of Europe. It is a moderately hard, silvery metal which readily oxidizes in air and water.","source":"https://en.wikipedia.org/wiki/Europium","cpk_hex":"61ffc7","density_gcm3":5.264,"melt_c":825.85,"boil_c":1528.85},{"name":"Gadolinium","symbol":"Gd","number":64,"atomic_mass":157.253,"category":"lanthanide","phase":"Solid","density":7.9,"melt":1585,"boil":3273,"xpos":10,"ypos":9,"electron_configuration_semantic":"[Xe] 4f7 5d1 6s2","electronegativity_pauling":1.2,"discovered_by":"Jean Charles Galissard de Marignac","summary":"Gadolinium is a chemical element with symbol Gd and atomic number 64. It is a silvery-white, malleable and ductile rare-earth metal. It is found in nature only in combined (salt) form.","source":"https://en.wikipedia.org/wiki/Gadolinium","cpk_hex":"45ffc7","density_gcm3":7.9,"melt_c":1311.85,"boil_c":2999.85},{"name":"Terbium","symbol":"Tb","number":65,"atomic_mass":158.925352,"category":"lanthanide","phase":"Solid","density":8.23,"melt":1629,"boil":3396,"xpos":11,"ypos":9,"electron_configuration_semantic":"[Xe] 4f9 6s2","electronegativity_pauling":1.1,"discovered_by":"Carl Gustaf Mosander","summary":"Terbium is a chemical element with symbol Tb and atomic number 65. It is a silvery-white rare earth metal that is malleable, ductile and soft enough to be cut with a knife. Terbium is never found in nature as a free element, but it is contained in many minerals, including cerite, gadolinite, monazite, xenotime and euxenite.","source":"https://en.wikipedia.org/wiki/Terbium","cpk_hex":"30ffc7","density_gcm3":8.23,"melt_c":1355.85,"boil_c":3122.85},{"name":"Dysprosium","symbol":"Dy","number":66,"atomic_mass":162.5001,"category":"lanthanide","phase":"Solid","density":8.54,"melt":1680,"boil":2840,"xpos":12,"ypos":9,"electron_configuration_semantic":"[Xe] 4f10 6s2","electronegativity_pauling":1.22,"discovered_by":"Lecoq de Boisbaudran","summary":"Dysprosium is a chemical element with the symbol Dy and atomic number 66. It is a rare earth element with a metallic silver luster. Dysprosium is never found in nature as a free element, though it is found in various minerals, such as xenotime.","source":"https://en.wikipedia.org/wiki/Dysprosium","cpk_hex":"1fffc7","density_gcm3":8.54,"melt_c":1406.85,"boil_c":2566.85},{"name":"Holmium","symbol":"Ho","number":67,"atomic_mass":164.930332,"category":"lanthanide","phase":"Solid","density":8.79,"melt":1734,"boil":2873,"xpos":13,"ypos":9,"electron_configuration_semantic":"[Xe] 4f11 6s2","electronegativity_pauling":1.23,"discovered_by":"Marc Delafontaine","summary":"Holmium is a chemical element with symbol Ho and atomic number 67. Part of the lanthanide series, holmium is a rare earth element. Holmium was discovered by Swedish chemist Per Theodor Cleve.","source":"https://en.wikipedia.org/wiki/Holmium","cpk_hex":"00ff9c","density_gcm3":8.79,"melt_c":1460.85,"boil_c":2599.85},{"name":"Erbium","symbol":"Er","number":68,"atomic_mass":167.2593,"category":"lanthanide","phase":"Solid","density":9.066,"melt":1802,"boil":3141,"xpos":14,"ypos":9,"electron_configuration_semantic":"[Xe] 4f12 6s2","electronegativity_pauling":1.24,"discovered_by":"Carl Gustaf Mosander","summary":"Erbium is a chemical element in the lanthanide series, with symbol Er and atomic number 68. A silvery-white solid metal when artificially isolated, natural erbium is always found in chemical combination with other elements on Earth. As such, it is a rare earth element which is associated with several other rare elements in the mineral gadolinite from Ytterby in Sweden, where yttrium, ytterbium, and terbium were discovered.","source":"https://en.wikipedia.org/wiki/Erbium","cpk_hex":"00e675","density_gcm3":9.066,"melt_c":1528.85,"boil_c":2867.85},{"name":"Thulium","symbol":"Tm","number":69,"atomic_mass":168.934222,"category":"lanthanide","phase":"Solid","density":9.32,"melt":1818,"boil":2223,"xpos":15,"ypos":9,"electron_configuration_semantic":"[Xe] 4f13 6s2","electronegativity_pauling":1.25,"discovered_by":"Per Teodor Cleve","summary":"Thulium is a chemical element with symbol Tm and atomic number 69. It is the thirteenth and antepenultimate (third-last) element in the lanthanide series. Like the other lanthanides, the most common oxidation state is +3, seen in its oxide, halides and other compounds.","source":"https://en.wikipedia.org/wiki/Thulium","cpk_hex":"00d452","density_gcm3":9.32,"melt_c":1544.85,"boil_c":1949.85},{"name":"Ytterbium","symbol":"Yb","number":70,"atomic_mass":173.0451,"category":"lanthanide","phase":"Solid","density":6.9,"melt":1097,"boil":1469,"xpos":16,"ypos":9,"electron_configuration_semantic":"[Xe] 4f14 6s2","electronegativity_pauling":1.1,"discovered_by":"Jean Charles Galissard de Marignac","summary":"Ytterbium is a chemical element with symbol Yb and atomic number 70. It is the fourteenth and penultimate element in the lanthanide series, which is the basis of the relative stability of its +2 oxidation state. However, like the other lanthanides, its most common oxidation state is +3, seen in its oxide, halides and other compounds.","source":"https://en.wikipedia.org/wiki/Ytterbium","cpk_hex":"00bf38","density_gcm3":6.9,"melt_c":823.85,"boil_c":1195.85},{"name":"Lutetium","symbol":"Lu","number":71,"atomic_mass":174.96681,"category":"lanthanide","phase":"Solid","density":9.841,"melt":1925,"boil":3675,"xpos":17,"ypos":9,"electron_configuration_semantic":"[Xe] 4f14 5d1 6s2","electronegativity_pauling":1.27,"discovered_by":"Georges Urbain","summary":"Lutetium is a chemical element with symbol Lu and atomic number 71. It is a silvery white metal, which resists corrosion in dry, but not in moist air. It is considered the first element of the 6th-period transition metals and the last element in the lanthanide series, and is traditionally counted among the rare earths.","source":"https://en.wikipedia.org/wiki/Lutetium","cpk_hex":"00ab24","density_gcm3":9.841,"melt_c":1651.85,"boil_c":3401.85},{"name":"Hafnium","symbol":"Hf","number":72,"atomic_mass":178.492,"category":"transition metal","phase":"Solid","density":13.31,"melt":2506,"boil":4876,"xpos":4,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d2 6s2","electronegativity_pauling":1.3,"discovered_by":"Dirk Coster","summary":"Hafnium is a chemical element with symbol Hf and atomic number 72. A lustrous, silvery gray, tetravalent transition metal, hafnium chemically resembles zirconium and is found in zirconium minerals. Its existence was predicted by Dmitri Mendeleev in 1869, though it was not identified until 1923, making it the penultimate stable element to be discovered (rhenium was identified two years later).","source":"https://en.wikipedia.org/wiki/Hafnium","cpk_hex":"4dc2ff","density_gcm3":13.31,"melt_c":2232.85,"boil_c":4602.85},{"name":"Tantalum","symbol":"Ta","number":73,"atomic_mass":180.947882,"category":"transition metal","phase":"Solid","density":16.69,"melt":3290,"boil":5731,"xpos":5,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d3 6s2","electronegativity_pauling":1.5,"discovered_by":"Anders Gustaf Ekeberg","summary":"Tantalum is a chemical element with symbol Ta and atomic number 73. Previously known as tantalium, its name comes from Tantalus, an antihero from Greek mythology. Tantalum is a rare, hard, blue-gray, lustrous transition metal that is highly corrosion-resistant.","source":"https://en.wikipedia.org/wiki/Tantalum","cpk_hex":"4da6ff","density_gcm3":16.69,"melt_c":3016.85,"boil_c":5457.85},{"name":"Tungsten","symbol":"W","number":74,"atomic_mass":183.841,"category":"transition metal","phase":"Solid","density":19.25,"melt":3695,"boil":6203,"xpos":6,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d4 6s2","electronegativity_pauling":2.36,"discovered_by":"Carl Wilhelm Scheele","summary":"Tungsten, also known as wolfram, is a chemical element with symbol W and atomic number 74. The word tungsten comes from the Swedish language tung sten, which directly translates to heavy stone. Its name in Swedish is volfram, however, in order to distinguish it from scheelite, which in Swedish is alternatively named tungsten.","source":"https://en.wikipedia.org/wiki/Tungsten","cpk_hex":"2194d6","density_gcm3":19.25,"melt_c":3421.85,"boil_c":5929.85},{"name":"Rhenium","symbol":"Re","number":75,"atomic_mass":186.2071,"category":"transition metal","phase":"Solid","density":21.02,"melt":3459,"boil":5869,"xpos":7,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d5 6s2","electronegativity_pauling":1.9,"discovered_by":"Masataka Ogawa","summary":"Rhenium is a chemical element with symbol Re and atomic number 75. It is a silvery-white, heavy, third-row transition metal in group 7 of the periodic table. With an estimated average concentration of 1 part per billion (ppb), rhenium is one of the rarest elements in the Earth's crust.","source":"https://en.wikipedia.org/wiki/Rhenium","cpk_hex":"267dab","density_gcm3":21.02,"melt_c":3185.85,"boil_c":5595.85},{"name":"Osmium","symbol":"Os","number":76,"atomic_mass":190.233,"category":"transition metal","phase":"Solid","density":22.59,"melt":3306,"boil":5285,"xpos":8,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d6 6s2","electronegativity_pauling":2.2,"discovered_by":"Smithson Tennant","summary":"Osmium (from Greek osme (\u1f40\u03c3\u03bc\u03ae) meaning \"smell\") is a chemical element with symbol Os and atomic number 76. It is a hard, brittle, bluish-white transition metal in the platinum group that is found as a trace element in alloys, mostly in platinum ores. Osmium is the densest naturally occurring element, with a density of 22.59 g/cm3.","source":"https://en.wikipedia.org/wiki/Osmium","cpk_hex":"266696","density_gcm3":22.59,"melt_c":3032.85,"boil_c":5011.85},{"name":"Iridium","symbol":"Ir","number":77,"atomic_mass":192.2173,"category":"transition metal","phase":"Solid","density":22.56,"melt":2719,"boil":4403,"xpos":9,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d7 6s2","electronegativity_pauling":2.2,"discovered_by":"Smithson Tennant","summary":"Iridium is a chemical element with symbol Ir and atomic number 77. A very hard, brittle, silvery-white transition metal of the platinum group, iridium is generally credited with being the second densest element (after osmium) based on measured density, although calculations involving the space lattices of the elements show that iridium is denser. It is also the most corrosion-resistant metal, even at temperatures as high as 2000 \u00b0C. Although only certain molten salts and halogens are corrosive to solid iridium, finely divided iridium dust is much more reactive and can be flammable.","source":"https://en.wikipedia.org/wiki/Iridium","cpk_hex":"175487","density_gcm3":22.56,"melt_c":2445.85,"boil_c":4129.85},{"name":"Platinum","symbol":"Pt","number":78,"atomic_mass":195.0849,"category":"transition metal","phase":"Solid","density":21.45,"melt":2041.4,"boil":4098,"xpos":10,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d9 6s1","electronegativity_pauling":2.28,"discovered_by":"Antonio de Ulloa","summary":"Platinum is a chemical element with symbol Pt and atomic number 78. It is a dense, malleable, ductile, highly unreactive, precious, gray-white transition metal. Its name is derived from the Spanish term platina, which is literally translated into \"little silver\".","source":"https://en.wikipedia.org/wiki/Platinum","cpk_hex":"d0d0e0","density_gcm3":21.45,"melt_c":1768.25,"boil_c":3824.85},{"name":"Gold","symbol":"Au","number":79,"atomic_mass":196.9665695,"category":"transition metal","phase":"Solid","density":19.3,"melt":1337.33,"boil":3243,"xpos":11,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d10 6s1","electronegativity_pauling":2.54,"discovered_by":"Middle East","summary":"Gold is a chemical element with symbol Au (from Latin:aurum) and atomic number 79. In its purest form, it is a bright, slightly reddish yellow, dense, soft, malleable and ductile metal. Chemically, gold is a transition metal and a group 11 element.","source":"https://en.wikipedia.org/wiki/Gold","cpk_hex":"ffd123","density_gcm3":19.3,"melt_c":1064.1799999999998,"boil_c":2969.85},{"name":"Mercury","symbol":"Hg","number":80,"atomic_mass":200.5923,"category":"transition metal","phase":"Liquid","density":13.534,"melt":234.321,"boil":629.88,"xpos":12,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d10 6s2","electronegativity_pauling":2,"discovered_by":"unknown, before 2000 BCE","summary":"Mercury is a chemical element with symbol Hg and atomic number 80. It is commonly known as quicksilver and was formerly named hydrargyrum (/ha\u026a\u02c8dr\u0251\u02d0rd\u0292\u0259r\u0259m/). A heavy, silvery d-block element, mercury is the only metallic element that is liquid at standard conditions for temperature and pressure; the only other element that is liquid under these conditions is bromine, though metals such as caesium, gallium, and rubidium melt just above room temperature.","source":"https://en.wikipedia.org/wiki/Mercury (Element)","cpk_hex":"b8b8d0","density_gcm3":13.534,"melt_c":-38.82899999999998,"boil_c":356.73},{"name":"Thallium","symbol":"Tl","number":81,"atomic_mass":204.38,"category":"post-transition metal","phase":"Solid","density":11.85,"melt":577,"boil":1746,"xpos":13,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d10 6s2 6p1","electronegativity_pauling":1.62,"discovered_by":"William Crookes","summary":"Thallium is a chemical element with symbol Tl and atomic number 81. This soft gray post-transition metal is not found free in nature. When isolated, it resembles tin, but discolors when exposed to air.","source":"https://en.wikipedia.org/wiki/Thallium","cpk_hex":"a6544d","density_gcm3":11.85,"melt_c":303.85,"boil_c":1472.85},{"name":"Lead","symbol":"Pb","number":82,"atomic_mass":207.21,"category":"post-transition metal","phase":"Solid","density":11.34,"melt":600.61,"boil":2022,"xpos":14,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d10 6s2 6p2","electronegativity_pauling":1.87,"discovered_by":"Middle East","summary":"Lead (/l\u025bd/) is a chemical element in the carbon group with symbol Pb (from Latin:plumbum) and atomic number 82. Lead is a soft, malleable and heavy post-transition metal. Metallic lead has a bluish-white color after being freshly cut, but it soon tarnishes to a dull grayish color when exposed to air.","source":"https://en.wikipedia.org/wiki/Lead_(element)","cpk_hex":"575961","density_gcm3":11.34,"melt_c":327.46000000000004,"boil_c":1748.85},{"name":"Bismuth","symbol":"Bi","number":83,"atomic_mass":208.980401,"category":"post-transition metal","phase":"Solid","density":9.78,"melt":544.7,"boil":1837,"xpos":15,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d10 6s2 6p3","electronegativity_pauling":2.02,"discovered_by":"Claude Fran\u00e7ois Geoffroy","summary":"Bismuth is a chemical element with symbol Bi and atomic number 83. Bismuth, a pentavalent post-transition metal, chemically resembles arsenic and antimony. Elemental bismuth may occur naturally, although its sulfide and oxide form important commercial ores.","source":"https://en.wikipedia.org/wiki/Bismuth","cpk_hex":"9e4fb5","density_gcm3":9.78,"melt_c":271.55000000000007,"boil_c":1563.85},{"name":"Polonium","symbol":"Po","number":84,"atomic_mass":209,"category":"post-transition metal","phase":"Solid","density":9.196,"melt":527,"boil":1235,"xpos":16,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d10 6s2 6p4","electronegativity_pauling":2,"discovered_by":"Pierre Curie","summary":"Polonium is a chemical element with symbol Po and atomic number 84, discovered in 1898 by Marie Curie and Pierre Curie. A rare and highly radioactive element with no stable isotopes, polonium is chemically similar to bismuth and tellurium, and it occurs in uranium ores. Applications of polonium are few.","source":"https://en.wikipedia.org/wiki/Polonium","cpk_hex":"ab5c00","density_gcm3":9.196,"melt_c":253.85000000000002,"boil_c":961.85},{"name":"Astatine","symbol":"At","number":85,"atomic_mass":210,"category":"metalloid","phase":"Solid","density":6.35,"melt":575,"boil":610,"xpos":17,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d10 6s2 6p5","electronegativity_pauling":2.2,"discovered_by":"Dale R. Corson","summary":"Astatine is a very rare radioactive chemical element with the chemical symbol At and atomic number 85. It occurs on Earth as the decay product of various heavier elements. All its isotopes are short-lived; the most stable is astatine-210, with a half-life of 8.1 hours.","source":"https://en.wikipedia.org/wiki/Astatine","cpk_hex":"754f45","density_gcm3":6.35,"melt_c":301.85,"boil_c":336.85},{"name":"Radon","symbol":"Rn","number":86,"atomic_mass":222,"category":"noble gas","phase":"Gas","density":9.73,"melt":202,"boil":211.5,"xpos":18,"ypos":6,"electron_configuration_semantic":"[Xe] 4f14 5d10 6s2 6p6","electronegativity_pauling":2.2,"discovered_by":"Friedrich Ernst Dorn","summary":"Radon is a chemical element with symbol Rn and atomic number 86. It is a radioactive, colorless, odorless, tasteless noble gas, occurring naturally as a decay product of radium. Its most stable isotope, 222Rn, has a half-life of 3.8 days.","source":"https://en.wikipedia.org/wiki/Radon","cpk_hex":"428296","density_gcm3":0.00973,"melt_c":-71.14999999999998,"boil_c":-61.64999999999998},{"name":"Francium","symbol":"Fr","number":87,"atomic_mass":223,"category":"alkali metal","phase":"Solid","density":1.87,"melt":300,"boil":950,"xpos":1,"ypos":7,"electron_configuration_semantic":"[Rn] 7s1","electronegativity_pauling":0.79,"discovered_by":"Marguerite Perey","summary":"Francium is a chemical element with symbol Fr and atomic number 87. It used to be known as eka-caesium and actinium K. It is the second-least electronegative element, behind only caesium. Francium is a highly radioactive metal that decays into astatine, radium, and radon.","source":"https://en.wikipedia.org/wiki/Francium","cpk_hex":"420066","density_gcm3":1.87,"melt_c":26.850000000000023,"boil_c":676.85},{"name":"Radium","symbol":"Ra","number":88,"atomic_mass":226,"category":"alkaline earth metal","phase":"Solid","density":5.5,"melt":1233,"boil":2010,"xpos":2,"ypos":7,"electron_configuration_semantic":"[Rn] 7s2","electronegativity_pauling":0.9,"discovered_by":"Pierre Curie","summary":"Radium is a chemical element with symbol Ra and atomic number 88. It is the sixth element in group 2 of the periodic table, also known as the alkaline earth metals. Pure radium is almost colorless, but it readily combines with nitrogen (rather than oxygen) on exposure to air, forming a black surface layer of radium nitride (Ra3N2).","source":"https://en.wikipedia.org/wiki/Radium","cpk_hex":"007d00","density_gcm3":5.5,"melt_c":959.85,"boil_c":1736.85},{"name":"Actinium","symbol":"Ac","number":89,"atomic_mass":227,"category":"actinide","phase":"Solid","density":10,"melt":1500,"boil":3500,"xpos":3,"ypos":10,"electron_configuration_semantic":"[Rn] 6d1 7s2","electronegativity_pauling":1.1,"discovered_by":"Friedrich Oskar Giesel","summary":"Actinium is a radioactive chemical element with symbol Ac (not to be confused with the abbreviation for an acetyl group) and atomic number 89, which was discovered in 1899. It was the first non-primordial radioactive element to be isolated. Polonium, radium and radon were observed before actinium, but they were not isolated until 1902.","source":"https://en.wikipedia.org/wiki/Actinium","cpk_hex":"70abfa","density_gcm3":10,"melt_c":1226.85,"boil_c":3226.85},{"name":"Thorium","symbol":"Th","number":90,"atomic_mass":232.03774,"category":"actinide","phase":"Solid","density":11.724,"melt":2023,"boil":5061,"xpos":4,"ypos":10,"electron_configuration_semantic":"[Rn] 6d2 7s2","electronegativity_pauling":1.3,"discovered_by":"J\u00f6ns Jakob Berzelius","summary":"Thorium is a chemical element with symbol Th and atomic number 90. A radioactive actinide metal, thorium is one of only two significantly radioactive elements that still occur naturally in large quantities as a primordial element (the other being uranium). It was discovered in 1828 by the Norwegian Reverend and amateur mineralogist Morten Thrane Esmark and identified by the Swedish chemist J\u00f6ns Jakob Berzelius, who named it after Thor, the Norse god of thunder.","source":"https://en.wikipedia.org/wiki/Thorium","cpk_hex":"00baff","density_gcm3":11.724,"melt_c":1749.85,"boil_c":4787.85},{"name":"Protactinium","symbol":"Pa","number":91,"atomic_mass":231.035882,"category":"actinide","phase":"Solid","density":15.37,"melt":1841,"boil":4300,"xpos":5,"ypos":10,"electron_configuration_semantic":"[Rn] 5f2 6d1 7s2","electronegativity_pauling":1.5,"discovered_by":"William Crookes","summary":"Protactinium is a chemical element with symbol Pa and atomic number 91. It is a dense, silvery-gray metal which readily reacts with oxygen, water vapor and inorganic acids. It forms various chemical compounds where protactinium is usually present in the oxidation state +5, but can also assume +4 and even +2 or +3 states.","source":"https://en.wikipedia.org/wiki/Protactinium","cpk_hex":"00a1ff","density_gcm3":15.37,"melt_c":1567.85,"boil_c":4026.85},{"name":"Uranium","symbol":"U","number":92,"atomic_mass":238.028913,"category":"actinide","phase":"Solid","density":19.1,"melt":1405.3,"boil":4404,"xpos":6,"ypos":10,"electron_configuration_semantic":"[Rn] 5f3 6d1 7s2","electronegativity_pauling":1.38,"discovered_by":"Martin Heinrich Klaproth","summary":"Uranium is a chemical element with symbol U and atomic number 92. It is a silvery-white metal in the actinide series of the periodic table. A uranium atom has 92 protons and 92 electrons, of which 6 are valence electrons.","source":"https://en.wikipedia.org/wiki/Uranium","cpk_hex":"008fff","density_gcm3":19.1,"melt_c":1132.15,"boil_c":4130.85},{"name":"Neptunium","symbol":"Np","number":93,"atomic_mass":237,"category":"actinide","phase":"Solid","density":20.45,"melt":912,"boil":4447,"xpos":7,"ypos":10,"electron_configuration_semantic":"[Rn] 5f4 6d1 7s2","electronegativity_pauling":1.36,"discovered_by":"Edwin McMillan","summary":"Neptunium is a chemical element with symbol Np and atomic number 93. A radioactive actinide metal, neptunium is the first transuranic element. Its position in the periodic table just after uranium, named after the planet Uranus, led to it being named after Neptune, the next planet beyond Uranus.","source":"https://en.wikipedia.org/wiki/Neptunium","cpk_hex":"0080ff","density_gcm3":20.45,"melt_c":638.85,"boil_c":4173.85},{"name":"Plutonium","symbol":"Pu","number":94,"atomic_mass":244,"category":"actinide","phase":"Solid","density":19.816,"melt":912.5,"boil":3505,"xpos":8,"ypos":10,"electron_configuration_semantic":"[Rn] 5f6 7s2","electronegativity_pauling":1.28,"discovered_by":"Glenn T. Seaborg","summary":"Plutonium is a transuranic radioactive chemical element with symbol Pu and atomic number 94. It is an actinide metal of silvery-gray appearance that tarnishes when exposed to air, and forms a dull coating when oxidized. The element normally exhibits six allotropes and four oxidation states.","source":"https://en.wikipedia.org/wiki/Plutonium","cpk_hex":"006bff","density_gcm3":19.816,"melt_c":639.35,"boil_c":3231.85},{"name":"Americium","symbol":"Am","number":95,"atomic_mass":243,"category":"actinide","phase":"Solid","density":12,"melt":1449,"boil":2880,"xpos":9,"ypos":10,"electron_configuration_semantic":"[Rn] 5f7 7s2","electronegativity_pauling":1.13,"discovered_by":"Glenn T. Seaborg","summary":"Americium is a radioactive transuranic chemical element with symbol Am and atomic number 95. This member of the actinide series is located in the periodic table under the lanthanide element europium, and thus by analogy was named after the Americas. Americium was first produced in 1944 by the group of Glenn T.Seaborg from Berkeley, California, at the metallurgical laboratory of University of Chicago.","source":"https://en.wikipedia.org/wiki/Americium","cpk_hex":"545cf2","density_gcm3":12,"melt_c":1175.85,"boil_c":2606.85},{"name":"Curium","symbol":"Cm","number":96,"atomic_mass":247,"category":"actinide","phase":"Solid","density":13.51,"melt":1613,"boil":3383,"xpos":10,"ypos":10,"electron_configuration_semantic":"[Rn] 5f7 6d1 7s2","electronegativity_pauling":1.28,"discovered_by":"Glenn T. Seaborg","summary":"Curium is a transuranic radioactive chemical element with symbol Cm and atomic number 96. This element of the actinide series was named after Marie and Pierre Curie \u2013 both were known for their research on radioactivity. Curium was first intentionally produced and identified in July 1944 by the group of Glenn T. Seaborg at the University of California, Berkeley.","source":"https://en.wikipedia.org/wiki/Curium","cpk_hex":"785ce3","density_gcm3":13.51,"melt_c":1339.85,"boil_c":3109.85},{"name":"Berkelium","symbol":"Bk","number":97,"atomic_mass":247,"category":"actinide","phase":"Solid","density":14.78,"melt":1259,"boil":2900,"xpos":11,"ypos":10,"electron_configuration_semantic":"[Rn] 5f9 7s2","electronegativity_pauling":1.3,"discovered_by":"Lawrence Berkeley National Laboratory","summary":"Berkelium is a transuranic radioactive chemical element with symbol Bk and atomic number 97. It is a member of the actinide and transuranium element series. It is named after the city of Berkeley, California, the location of the University of California Radiation Laboratory where it was discovered in December 1949.","source":"https://en.wikipedia.org/wiki/Berkelium","cpk_hex":"8a4fe3","density_gcm3":14.78,"melt_c":985.85,"boil_c":2626.85},{"name":"Californium","symbol":"Cf","number":98,"atomic_mass":251,"category":"actinide","phase":"Solid","density":15.1,"melt":1173,"boil":1743,"xpos":12,"ypos":10,"electron_configuration_semantic":"[Rn] 5f10 7s2","electronegativity_pauling":1.3,"discovered_by":"Lawrence Berkeley National Laboratory","summary":"Californium is a radioactive metallic chemical element with symbol Cf and atomic number 98. The element was first made in 1950 at the University of California Radiation Laboratory in Berkeley, by bombarding curium with alpha particles (helium-4 ions). It is an actinide element, the sixth transuranium element to be synthesized, and has the second-highest atomic mass of all the elements that have been produced in amounts large enough to see with the unaided eye (after einsteinium).","source":"https://en.wikipedia.org/wiki/Californium","cpk_hex":"a136d4","density_gcm3":15.1,"melt_c":899.85,"boil_c":1469.85},{"name":"Einsteinium","symbol":"Es","number":99,"atomic_mass":252,"category":"actinide","phase":"Solid","density":8.84,"melt":1133,"boil":1269,"xpos":13,"ypos":10,"electron_configuration_semantic":"[Rn] 5f11 7s2","electronegativity_pauling":1.3,"discovered_by":"Lawrence Berkeley National Laboratory","summary":"Einsteinium is a synthetic element with symbol Es and atomic number 99. It is the seventh transuranic element, and an actinide. Einsteinium was discovered as a component of the debris of the first hydrogen bomb explosion in 1952, and named after Albert Einstein.","source":"https://en.wikipedia.org/wiki/Einsteinium","cpk_hex":"b31fd4","density_gcm3":8.84,"melt_c":859.85,"boil_c":995.85},{"name":"Fermium","symbol":"Fm","number":100,"atomic_mass":257,"category":"actinide","phase":"Solid","density":null,"melt":1800,"boil":null,"xpos":14,"ypos":10,"electron_configuration_semantic":"[Rn] 5f12 7s2","electronegativity_pauling":1.3,"discovered_by":"Lawrence Berkeley National Laboratory","summary":"Fermium is a synthetic element with symbol Fm and atomic number 100. It is a member of the actinide series. It is the heaviest element that can be formed by neutron bombardment of lighter elements, and hence the last element that can be prepared in macroscopic quantities, although pure fermium metal has not yet been prepared.","source":"https://en.wikipedia.org/wiki/Fermium","cpk_hex":"b31fba","density_gcm3":null,"melt_c":1526.85,"boil_c":null},{"name":"Mendelevium","symbol":"Md","number":101,"atomic_mass":258,"category":"actinide","phase":"Solid","density":null,"melt":1100,"boil":null,"xpos":15,"ypos":10,"electron_configuration_semantic":"[Rn] 5f13 7s2","electronegativity_pauling":1.3,"discovered_by":"Lawrence Berkeley National Laboratory","summary":"Mendelevium is a synthetic element with chemical symbol Md (formerly Mv) and atomic number 101. A metallic radioactive transuranic element in the actinide series, it is the first element that currently cannot be produced in macroscopic quantities through neutron bombardment of lighter elements. It is the antepenultimate actinide and the ninth transuranic element.","source":"https://en.wikipedia.org/wiki/Mendelevium","cpk_hex":"b30da6","density_gcm3":null,"melt_c":826.85,"boil_c":null},{"name":"Nobelium","symbol":"No","number":102,"atomic_mass":259,"category":"actinide","phase":"Solid","density":null,"melt":1100,"boil":null,"xpos":16,"ypos":10,"electron_configuration_semantic":"[Rn] 5f14 7s2","electronegativity_pauling":1.3,"discovered_by":"Joint Institute for Nuclear Research","summary":"Nobelium is a synthetic chemical element with symbol No and atomic number 102. It is named in honor of Alfred Nobel, the inventor of dynamite and benefactor of science. A radioactive metal, it is the tenth transuranic element and is the penultimate member of the actinide series.","source":"https://en.wikipedia.org/wiki/Nobelium","cpk_hex":"bd0d87","density_gcm3":null,"melt_c":826.85,"boil_c":null},{"name":"Lawrencium","symbol":"Lr","number":103,"atomic_mass":266,"category":"actinide","phase":"Solid","density":null,"melt":1900,"boil":null,"xpos":17,"ypos":10,"electron_configuration_semantic":"[Rn] 5f14 7s2 7p1","electronegativity_pauling":1.3,"discovered_by":"Lawrence Berkeley National Laboratory","summary":"Lawrencium is a synthetic chemical element with chemical symbol Lr (formerly Lw) and atomic number 103. It is named in honor of Ernest Lawrence, inventor of the cyclotron, a device that was used to discover many artificial radioactive elements. A radioactive metal, lawrencium is the eleventh transuranic element and is also the final member of the actinide series.","source":"https://en.wikipedia.org/wiki/Lawrencium","cpk_hex":"c70066","density_gcm3":null,"melt_c":1626.85,"boil_c":null},{"name":"Rutherfordium","symbol":"Rf","number":104,"atomic_mass":267,"category":"transition metal","phase":"Solid","density":23.2,"melt":2400,"boil":5800,"xpos":4,"ypos":7,"electron_configuration_semantic":"[Rn] 5f14 6d2 7s2","electronegativity_pauling":null,"discovered_by":"Joint Institute for Nuclear Research","summary":"Rutherfordium is a chemical element with symbol Rf and atomic number 104, named in honor of physicist Ernest Rutherford. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and radioactive; the most stable known isotope, 267Rf, has a half-life of approximately 1.3 hours. In the periodic table of the elements, it is a d - block element and the second of the fourth - row transition elements.","source":"https://en.wikipedia.org/wiki/Rutherfordium","cpk_hex":"cc0059","density_gcm3":23.2,"melt_c":2126.85,"boil_c":5526.85},{"name":"Dubnium","symbol":"Db","number":105,"atomic_mass":268,"category":"transition metal","phase":"Solid","density":29.3,"melt":null,"boil":null,"xpos":5,"ypos":7,"electron_configuration_semantic":"*[Rn] 5f14 6d3 7s2","electronegativity_pauling":null,"discovered_by":"Joint Institute for Nuclear Research","summary":"Dubnium is a chemical element with symbol Db and atomic number 105. It is named after the town of Dubna in Russia (north of Moscow), where it was first produced. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and radioactive; the most stable known isotope, dubnium-268, has a half-life of approximately 28 hours.","source":"https://en.wikipedia.org/wiki/Dubnium","cpk_hex":"d1004f","density_gcm3":29.3,"melt_c":null,"boil_c":null},{"name":"Seaborgium","symbol":"Sg","number":106,"atomic_mass":269,"category":"transition metal","phase":"Solid","density":35,"melt":null,"boil":null,"xpos":6,"ypos":7,"electron_configuration_semantic":"*[Rn] 5f14 6d4 7s2","electronegativity_pauling":null,"discovered_by":"Lawrence Berkeley National Laboratory","summary":"Seaborgium is a synthetic element with symbol Sg and atomic number 106. Its most stable isotope 271Sg has a half-life of 1.9 minutes. A more recently discovered isotope 269Sg has a potentially slightly longer half-life (ca.","source":"https://en.wikipedia.org/wiki/Seaborgium","cpk_hex":"d90045","density_gcm3":35,"melt_c":null,"boil_c":null},{"name":"Bohrium","symbol":"Bh","number":107,"atomic_mass":270,"category":"transition metal","phase":"Solid","density":37.1,"melt":null,"boil":null,"xpos":7,"ypos":7,"electron_configuration_semantic":"*[Rn] 5f14 6d5 7s2","electronegativity_pauling":null,"discovered_by":"Gesellschaft f\u00fcr Schwerionenforschung","summary":"Bohrium is a chemical element with symbol Bh and atomic number 107. It is named after Danish physicist Niels Bohr. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and radioactive; the most stable known isotope, 270Bh, has a half-life of approximately 61 seconds.","source":"https://en.wikipedia.org/wiki/Bohrium","cpk_hex":"e00038","density_gcm3":37.1,"melt_c":null,"boil_c":null},{"name":"Hassium","symbol":"Hs","number":108,"atomic_mass":269,"category":"transition metal","phase":"Solid","density":40.7,"melt":126,"boil":null,"xpos":8,"ypos":7,"electron_configuration_semantic":"*[Rn] 5f14 6d6 7s2","electronegativity_pauling":null,"discovered_by":"Gesellschaft f\u00fcr Schwerionenforschung","summary":"Hassium is a chemical element with symbol Hs and atomic number 108, named after the German state of Hesse. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and radioactive; the most stable known isotope, 269Hs, has a half-life of approximately 9.7 seconds, although an unconfirmed metastable state, 277mHs, may have a longer half-life of about 130 seconds. More than 100 atoms of hassium have been synthesized to date.","source":"https://en.wikipedia.org/wiki/Hassium","cpk_hex":"e6002e","density_gcm3":40.7,"melt_c":-147.14999999999998,"boil_c":null},{"name":"Meitnerium","symbol":"Mt","number":109,"atomic_mass":278,"category":"unknown, probably transition metal","phase":"Solid","density":37.4,"melt":null,"boil":null,"xpos":9,"ypos":7,"electron_configuration_semantic":"*[Rn] 5f14 6d7 7s2","electronegativity_pauling":null,"discovered_by":"Gesellschaft f\u00fcr Schwerionenforschung","summary":"Meitnerium is a chemical element with symbol Mt and atomic number 109. It is an extremely radioactive synthetic element (an element not found in nature that can be created in a laboratory). The most stable known isotope, meitnerium-278, has a half-life of 7.6 seconds.","source":"https://en.wikipedia.org/wiki/Meitnerium","cpk_hex":"eb0026","density_gcm3":37.4,"melt_c":null,"boil_c":null},{"name":"Darmstadtium","symbol":"Ds","number":110,"atomic_mass":281,"category":"unknown, probably transition metal","phase":"Solid","density":34.8,"melt":null,"boil":null,"xpos":10,"ypos":7,"electron_configuration_semantic":"*[Rn] 5f14 6d9 7s1","electronegativity_pauling":null,"discovered_by":"Gesellschaft f\u00fcr Schwerionenforschung","summary":"Darmstadtium is a chemical element with symbol Ds and atomic number 110. It is an extremely radioactive synthetic element. The most stable known isotope, darmstadtium-281, has a half-life of approximately 10 seconds.","source":"https://en.wikipedia.org/wiki/Darmstadtium","cpk_hex":null,"density_gcm3":34.8,"melt_c":null,"boil_c":null},{"name":"Roentgenium","symbol":"Rg","number":111,"atomic_mass":282,"category":"unknown, probably transition metal","phase":"Solid","density":28.7,"melt":null,"boil":null,"xpos":11,"ypos":7,"electron_configuration_semantic":"*[Rn] 5f14 6d10 7s1","electronegativity_pauling":null,"discovered_by":"Gesellschaft f\u00fcr Schwerionenforschung","summary":"Roentgenium is a chemical element with symbol Rg and atomic number 111. It is an extremely radioactive synthetic element (an element that can be created in a laboratory but is not found in nature); the most stable known isotope, roentgenium-282, has a half-life of 2.1 minutes. Roentgenium was first created in 1994 by the GSI Helmholtz Centre for Heavy Ion Research near Darmstadt, Germany.","source":"https://en.wikipedia.org/wiki/Roentgenium","cpk_hex":null,"density_gcm3":28.7,"melt_c":null,"boil_c":null},{"name":"Copernicium","symbol":"Cn","number":112,"atomic_mass":285,"category":"transition metal","phase":"Liquid","density":14.0,"melt":null,"boil":3570,"xpos":12,"ypos":7,"electron_configuration_semantic":"*[Rn] 5f14 6d10 7s2","electronegativity_pauling":null,"discovered_by":"Gesellschaft f\u00fcr Schwerionenforschung","summary":"Copernicium is a chemical element with symbol Cn and atomic number 112. It is an extremely radioactive synthetic element that can only be created in a laboratory. The most stable known isotope, copernicium-285, has a half-life of approximately 29 seconds, but it is possible that this copernicium isotope may have a nuclear isomer with a longer half-life, 8.9 min.","source":"https://en.wikipedia.org/wiki/Copernicium","cpk_hex":null,"density_gcm3":14.0,"melt_c":null,"boil_c":3296.85},{"name":"Nihonium","symbol":"Nh","number":113,"atomic_mass":286,"category":"unknown, probably transition metal","phase":"Solid","density":16,"melt":700,"boil":1430,"xpos":13,"ypos":7,"electron_configuration_semantic":"*[Rn] 5f14 6d10 7s2 7p1","electronegativity_pauling":null,"discovered_by":"RIKEN","summary":"Nihonium is a chemical element with atomic number 113. It has a symbol Nh. It is a synthetic element (an element that can be created in a laboratory but is not found in nature) and is extremely radioactive; its most stable known isotope, nihonium-286, has a half-life of 20 seconds.","source":"https://en.wikipedia.org/wiki/Ununtrium","cpk_hex":null,"density_gcm3":16,"melt_c":426.85,"boil_c":1156.85},{"name":"Flerovium","symbol":"Fl","number":114,"atomic_mass":289,"category":"post-transition metal","phase":"Solid","density":14,"melt":340,"boil":420,"xpos":14,"ypos":7,"electron_configuration_semantic":"*[Rn] 5f14 6d10 7s2 7p2","electronegativity_pauling":null,"discovered_by":"Joint Institute for Nuclear Research","summary":"Flerovium is a superheavy artificial chemical element with symbol Fl and atomic number 114. It is an extremely radioactive synthetic element. The element is named after the Flerov Laboratory of Nuclear Reactions of the Joint Institute for Nuclear Research in Dubna, Russia, where the element was discovered in 1998.","source":"https://en.wikipedia.org/wiki/Flerovium","cpk_hex":null,"density_gcm3":14,"melt_c":66.85000000000002,"boil_c":146.85000000000002},{"name":"Moscovium","symbol":"Mc","number":115,"atomic_mass":289,"category":"unknown, probably post-transition metal","phase":"Solid","density":13.5,"melt":670,"boil":1400,"xpos":15,"ypos":7,"electron_configuration_semantic":"*[Rn] 5f14 6d10 7s2 7p3","electronegativity_pauling":null,"discovered_by":"Joint Institute for Nuclear Research","summary":"Moscovium is the name of a synthetic superheavy element in the periodic table that has the symbol Mc and has the atomic number 115. It is an extremely radioactive element; its most stable known isotope, moscovium-289, has a half-life of only 220 milliseconds. It is also known as eka-bismuth or simply element 115.","source":"https://en.wikipedia.org/wiki/Ununpentium","cpk_hex":null,"density_gcm3":13.5,"melt_c":396.85,"boil_c":1126.85},{"name":"Livermorium","symbol":"Lv","number":116,"atomic_mass":293,"category":"unknown, probably post-transition metal","phase":"Solid","density":12.9,"melt":709,"boil":1085,"xpos":16,"ypos":7,"electron_configuration_semantic":"*[Rn] 5f14 6d10 7s2 7p4","electronegativity_pauling":null,"discovered_by":"Joint Institute for Nuclear Research","summary":"Livermorium is a synthetic superheavy element with symbol Lv and atomic number 116. It is an extremely radioactive element that has only been created in the laboratory and has not been observed in nature. The element is named after the Lawrence Livermore National Laboratory in the United States, which collaborated with the Joint Institute for Nuclear Research in Dubna, Russia to discover livermorium in 2000.","source":"https://en.wikipedia.org/wiki/Livermorium","cpk_hex":null,"density_gcm3":12.9,"melt_c":435.85,"boil_c":811.85},{"name":"Tennessine","symbol":"Ts","number":117,"atomic_mass":294,"category":"unknown, probably metalloid","phase":"Solid","density":7.17,"melt":723,"boil":883,"xpos":17,"ypos":7,"electron_configuration_semantic":"*[Rn] 5f14 6d10 7s2 7p5","electronegativity_pauling":null,"discovered_by":"Joint Institute for Nuclear Research","summary":"Tennessine is a superheavy artificial chemical element with an atomic number of 117 and a symbol of Ts. Also known as eka-astatine or element 117, it is the second-heaviest known element and penultimate element of the 7th period of the periodic table. As of 2016, fifteen tennessine atoms have been observed: six when it was first synthesized in 2010, seven in 2012, and two in 2014.","source":"https://en.wikipedia.org/wiki/Tennessine","cpk_hex":null,"density_gcm3":7.17,"melt_c":449.85,"boil_c":609.85},{"name":"Oganesson","symbol":"Og","number":118,"atomic_mass":294,"category":"unknown, predicted to be noble gas","phase":"Solid","density":4.95,"melt":null,"boil":350,"xpos":18,"ypos":7,"electron_configuration_semantic":"*[Rn] 5f14 6d10 7s2 7p6","electronegativity_pauling":null,"discovered_by":"Joint Institute for Nuclear Research","summary":"Oganesson is IUPAC's name for the transactinide element with the atomic number 118 and element symbol Og. It is also known as eka-radon or element 118, and on the periodic table of the elements it is a p-block element and the last one of the 7th period. Oganesson is currently the only synthetic member of group 18.","source":"https://en.wikipedia.org/wiki/Oganesson","cpk_hex":null,"density_gcm3":4.95,"melt_c":null,"boil_c":76.85000000000002}];
 
-            100% {
-                color: red;
-            }
-        }
+// add display density (g/cm³) to match the static table
+ELEMENTS.forEach(e=>{
+  e.density_disp = e.phase==='Gas' && e.density!=null ? e.density/1000 : e.density;
+  e.melt = e.melt_c;
+  e.boil = e.boil_c;
+});
 
-        h1 {
-            font-size: 10vw;
-            animation: colorchange 30s infinite;
-        }
+const tbody = document.getElementById('tbody');
+const rows = Array.from(tbody.querySelectorAll('tr'));
+const countEl = document.getElementById('count');
+const noResults = document.getElementById('noResults');
+const qInput = document.getElementById('q');
+const phaseFilter = document.getElementById('phaseFilter');
+const categoryFilter = document.getElementById('categoryFilter');
 
-       
-
-        table {
-              width: 100%;
-              border-collapse: collapse;
-              background: #ffffff;
+function applyFilters(){
+  const q = qInput.value.trim().toLowerCase();
+  const phase = phaseFilter.value;
+  const cat = categoryFilter.value;
+  let visible = 0;
+  rows.forEach(tr=>{
+    const matchQ = !q || tr.dataset.name.includes(q) || tr.dataset.symbol.includes(q) || tr.dataset.number === q || tr.dataset.number.includes(q);
+    const matchPhase = !phase || tr.dataset.phase === phase;
+    const matchCat = !cat || tr.dataset.category === cat;
+    const show = matchQ && matchPhase && matchCat;
+    tr.classList.toggle('hidden', !show);
+    if(show) visible++;
+  });
+  countEl.textContent = visible;
+  noResults.style.display = visible ? 'none' : 'block';
+  return false;
 }
-th, td {
-  border: 1px solid #ccc;
-  padding: 6px;
-  text-align: center;
+
+document.getElementById('searchBtn').addEventListener('click', applyFilters);
+qInput.addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); applyFilters(); } });
+phaseFilter.addEventListener('change', applyFilters);
+categoryFilter.addEventListener('change', applyFilters);
+
+document.getElementById('clearBtn').addEventListener('click', ()=>{
+  qInput.value=''; phaseFilter.value=''; categoryFilter.value=''; applyFilters();
+});
+document.getElementById('resetBtn').addEventListener('click', ()=>{
+  qInput.value=''; phaseFilter.value=''; categoryFilter.value=''; applyFilters();
+  // reset sort to atomic number
+  sortBy('number', true);
+});
+
+// --- Sorting (reorders DOM rows) ---
+let sortKey = 'number', sortDir = 1;
+function getCellValue(tr, key){
+  const map = {number:0,name:1,symbol:2,atomic_mass:3,density:4,melt:5,boil:6,phase:7};
+  const td = tr.children[map[key]];
+  if(!td) return '';
+  const t = td.textContent.trim();
+  const num = parseFloat(t.replace(/,/g,''));
+  return isNaN(num) ? t.toLowerCase() : num;
 }
-th {
-  background: #2c3e50;
-  color: white;
-}
-
-
-        footer {
-            background-color: #1e69a5;
-            color: white;
-            padding: 20px;
-        }
-
-
-
-        .author {
-            font-size: 20px;
-            color: white;
-            margin: auto;
-
-        }
-
-        .copyright {
-            font-size: 20px;
-            color: white;
-            margin: auto;
-        }
-
-        @media (max-width: 700px) {
-            h1 {
-                font-size: 10vw;
-            }
-
-            table {
-                width: 400px;
-            }
-
-
-            footer {
-                background-color: #1e69a5;
-                color: white;
-                /* justify-content: space-around; */
-                padding: 20px;
-            }
-
-
-
-            .author {
-                font-size: 10px;
-                color: white;
-
-
-            }
-
-            .copyright {
-                font-size: 10px;
-                color: white;
-
-
-            }
-
-        }
-
-        @media (max-width: 450px) {
-            h1 {
-                font-size: 10vw;
-            }
-
-            table {
-                width: 200px;
-            }
-
-            footer {
-                background-color: #1e69a5;
-                color: white;
-                /* justify-content: space-around; */
-                padding: 20px;
-            }
-
-
-
-            .author {
-                font-size: 10px;
-                color: white;
-                text-align: left;
-
-
-            }
-
-            .copyright {
-                font-size: 10px;
-                color: white;
-                text-align: left;
-
-
-        }
+function sortBy(key, forceAsc=false){
+  if(sortKey===key && !forceAsc) sortDir *= -1; else { sortKey=key; sortDir=forceAsc?1:1; }
+  const sorted = rows.slice().sort((a,b)=>{
+    const av=getCellValue(a,key), bv=getCellValue(b,key);
+    if(typeof av==='number' && typeof bv==='number') return (av-bv)*sortDir;
+    return av.toString().localeCompare(bv.toString())*sortDir;
+  });
+  sorted.forEach(r=>tbody.appendChild(r));
+  // update header indicators
+  document.querySelectorAll('thead th').forEach(th=>{
+    th.classList.remove('sorted');
+    const s = th.querySelector('.sort'); if(s) s.textContent='↕';
+    if(th.dataset.sort===key){
+      th.classList.add('sorted');
+      const s2 = th.querySelector('.sort'); if(s2) s2.textContent = sortDir===1 ? '↑' : '↓';
     }
-    </style>
-    <table>
-        <tr id="first">
-            <th class="f"></th>
-            <th class="f">Element</th>
-            <th class="f">Symbol</th>
-            <th class="f">Atomic No.</th>
-            <th class="f">Atomic Weight</th>
-            <th class="f">Density (g/cm³)</th>
-            <th class="f">Melting Point (°C)</th>
-            <th class="f">Boiling Point (°C)</th>
-            <th class="f">State</th>
-        </tr>
-        <tbody">
-            <tr>
-                <td>1</td>
-                <td>Hydrogen</td>
-                <td>H</td>
-                <td>1</td>
-                <td>1.008</td>
-                <td>0.0000899</td>
-                <td>-259.1</td>
-                <td>-252.9</td>
-                <td>Gas</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Helium</td>
-                <td>He</td>
-                <td>2</td>
-                <td>4.0026</td>
-                <td>0.0001785</td>
-                <td>-272.2</td>
-                <td>-268.9</td>
-                <td>Gas</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Lithium</td>
-                <td>Li</td>
-                <td>3</td>
-                <td>6.94</td>
-                <td>0.534</td>
-                <td>180.5</td>
-                <td>1342</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Beryllium</td>
-                <td>Be</td>
-                <td>4</td>
-                <td>9.0122</td>
-                <td>1.85</td>
-                <td>1287</td>
-                <td>2470</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Boron</td>
-                <td>B</td>
-                <td>5</td>
-                <td>10.81</td>
-                <td>2.34</td>
-                <td>2075</td>
-                <td>4000</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Carbon</td>
-                <td>C</td>
-                <td>6</td>
-                <td>12.011</td>
-                <td>2.27</td>
-                <td>3550</td>
-                <td>4827</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>Nitrogen</td>
-                <td>N</td>
-                <td>7</td>
-                <td>14.007</td>
-                <td>0.00125</td>
-                <td>-210</td>
-                <td>-195.8</td>
-                <td>Gas</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>Oxygen</td>
-                <td>O</td>
-                <td>8</td>
-                <td>15.999</td>
-                <td>0.00143</td>
-                <td>-218.8</td>
-                <td>-183</td>
-                <td>Gas</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>Fluorine</td>
-                <td>F</td>
-                <td>9</td>
-                <td>18.998</td>
-                <td>0.00170</td>
-                <td>-219.6</td>
-                <td>-188.1</td>
-                <td>Gas</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>Neon</td>
-                <td>Ne</td>
-                <td>10</td>
-                <td>20.18</td>
-                <td>0.0009</td>
-                <td>-248.6</td>
-                <td>-246.1</td>
-                <td>Gas</td>
-            </tr>
+  });
+}
+document.querySelectorAll('thead th[data-sort]').forEach(th=>{
+  th.addEventListener('click', ()=> sortBy(th.dataset.sort));
+});
 
-            <!-- Skipping visual repetition explanation — continuing -->
+// Export CSV of currently visible rows
+document.getElementById('exportBtn').addEventListener('click', ()=>{
+  const visibleRows = rows.filter(r=>!r.classList.contains('hidden'));
+  const nums = visibleRows.map(r=>parseInt(r.dataset.number));
+  const data = ELEMENTS.filter(e=>nums.includes(e.number)).sort((a,b)=>nums.indexOf(a.number)-nums.indexOf(b.number));
+  const cols = ['number','name','symbol','atomic_mass','density_disp','melt_c','boil_c','phase','category'];
+  const csv = [cols.join(',')].concat(data.map(r=>cols.map(c=>JSON.stringify(r[c]??'')).join(','))).join('\n');
+  const blob = new Blob([csv], {type:'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download='elements.csv'; a.click();
+  URL.revokeObjectURL(a.href);
+});
 
-            <tr>
-                <td>11</td>
-                <td>Sodium</td>
-                <td>Na</td>
-                <td>11</td>
-                <td>22.99</td>
-                <td>0.971</td>
-                <td>97.8</td>
-                <td>883</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>12</td>
-                <td>Magnesium</td>
-                <td>Mg</td>
-                <td>12</td>
-                <td>24.305</td>
-                <td>1.74</td>
-                <td>650</td>
-                <td>1091</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>13</td>
-                <td>Aluminum</td>
-                <td>Al</td>
-                <td>13</td>
-                <td>26.982</td>
-                <td>2.70</td>
-                <td>660.3</td>
-                <td>2470</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>14</td>
-                <td>Silicon</td>
-                <td>Si</td>
-                <td>14</td>
-                <td>28.085</td>
-                <td>2.33</td>
-                <td>1414</td>
-                <td>3265</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td>Phosphorus</td>
-                <td>P</td>
-                <td>15</td>
-                <td>30.974</td>
-                <td>1.82</td>
-                <td>44.1</td>
-                <td>280.5</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>16</td>
-                <td>Sulfur</td>
-                <td>S</td>
-                <td>16</td>
-                <td>32.06</td>
-                <td>2.07</td>
-                <td>115.2</td>
-                <td>444.6</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>17</td>
-                <td>Chlorine</td>
-                <td>Cl</td>
-                <td>17</td>
-                <td>35.45</td>
-                <td>0.00321</td>
-                <td>-101.5</td>
-                <td>-34</td>
-                <td>Gas</td>
-            </tr>
-            <tr>
-                <td>18</td>
-                <td>Argon</td>
-                <td>Ar</td>
-                <td>18</td>
-                <td>39.948</td>
-                <td>0.00178</td>
-                <td>-189.3</td>
-                <td>-185.8</td>
-                <td>Gas</td>
-            </tr>
-            <tr>
-                <td>19</td>
-                <td>Potassium</td>
-                <td>K</td>
-                <td>19</td>
-                <td>39.098</td>
-                <td>0.86</td>
-                <td>63.5</td>
-                <td>759</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>20</td>
-                <td>Calcium</td>
-                <td>Ca</td>
-                <td>20</td>
-                <td>40.078</td>
-                <td>1.54</td>
-                <td>842</td>
-                <td>1484</td>
-                <td>Solid</td>
-            </tr>
+// keyboard: / to focus
+document.addEventListener('keydown', e=>{
+  if(e.key==='/' && e.target.tagName!=='INPUT' && e.target.tagName!=='SELECT'){ e.preventDefault(); qInput.focus(); }
+});
 
-            <tr>
-                <td>21</td>
-                <td>Scandium</td>
-                <td>Sc</td>
-                <td>21</td>
-                <td>44.956</td>
-                <td>2.99</td>
-                <td>1541</td>
-                <td>2836</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>22</td>
-                <td>Titanium</td>
-                <td>Ti</td>
-                <td>22</td>
-                <td>47.867</td>
-                <td>4.51</td>
-                <td>1668</td>
-                <td>3287</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>23</td>
-                <td>Vanadium</td>
-                <td>V</td>
-                <td>23</td>
-                <td>50.942</td>
-                <td>6.11</td>
-                <td>1910</td>
-                <td>3407</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>24</td>
-                <td>Chromium</td>
-                <td>Cr</td>
-                <td>24</td>
-                <td>51.996</td>
-                <td>7.19</td>
-                <td>1907</td>
-                <td>2671</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>25</td>
-                <td>Manganese</td>
-                <td>Mn</td>
-                <td>25</td>
-                <td>54.938</td>
-                <td>7.21</td>
-                <td>1246</td>
-                <td>2061</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>26</td>
-                <td>Iron</td>
-                <td>Fe</td>
-                <td>26</td>
-                <td>55.845</td>
-                <td>7.87</td>
-                <td>1538</td>
-                <td>2862</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>27</td>
-                <td>Cobalt</td>
-                <td>Co</td>
-                <td>27</td>
-                <td>58.933</td>
-                <td>8.90</td>
-                <td>1495</td>
-                <td>2927</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>28</td>
-                <td>Nickel</td>
-                <td>Ni</td>
-                <td>28</td>
-                <td>58.693</td>
-                <td>8.90</td>
-                <td>1455</td>
-                <td>2913</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>29</td>
-                <td>Copper</td>
-                <td>Cu</td>
-                <td>29</td>
-                <td>63.546</td>
-                <td>8.96</td>
-                <td>1085</td>
-                <td>2562</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>30</td>
-                <td>Zinc</td>
-                <td>Zn</td>
-                <td>30</td>
-                <td>65.38</td>
-                <td>7.14</td>
-                <td>419.5</td>
-                <td>907</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>31</td>
-                <td>Gallium</td>
-                <td>Ga</td>
-                <td>31</td>
-                <td>69.723</td>
-                <td>5.91</td>
-                <td>29.8</td>
-                <td>2204</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>32</td>
-                <td>Germanium</td>
-                <td>Ge</td>
-                <td>32</td>
-                <td>72.630</td>
-                <td>5.32</td>
-                <td>938.3</td>
-                <td>2833</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>33</td>
-                <td>Arsenic</td>
-                <td>As</td>
-                <td>33</td>
-                <td>74.922</td>
-                <td>5.73</td>
-                <td>817</td>
-                <td>614</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>34</td>
-                <td>Selenium</td>
-                <td>Se</td>
-                <td>34</td>
-                <td>78.971</td>
-                <td>4.81</td>
-                <td>221</td>
-                <td>685</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>35</td>
-                <td>Bromine</td>
-                <td>Br</td>
-                <td>35</td>
-                <td>79.904</td>
-                <td>3.12</td>
-                <td>-7.2</td>
-                <td>58.8</td>
-                <td>Liquid</td>
-            </tr>
-            <tr>
-                <td>36</td>
-                <td>Krypton</td>
-                <td>Kr</td>
-                <td>36</td>
-                <td>83.798</td>
-                <td>0.00373</td>
-                <td>-157.4</td>
-                <td>-153.4</td>
-                <td>Gas</td>
-            </tr>
-            <tr>
-                <td>37</td>
-                <td>Rubidium</td>
-                <td>Rb</td>
-                <td>37</td>
-                <td>85.468</td>
-                <td>1.53</td>
-                <td>39.3</td>
-                <td>688</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>38</td>
-                <td>Strontium</td>
-                <td>Sr</td>
-                <td>38</td>
-                <td>87.62</td>
-                <td>2.64</td>
-                <td>777</td>
-                <td>1382</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>39</td>
-                <td>Yttrium</td>
-                <td>Y</td>
-                <td>39</td>
-                <td>88.906</td>
-                <td>4.47</td>
-                <td>1526</td>
-                <td>3336</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>40</td>
-                <td>Zirconium</td>
-                <td>Zr</td>
-                <td>40</td>
-                <td>91.224</td>
-                <td>6.52</td>
-                <td>1855</td>
-                <td>4409</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>41</td>
-                <td>Niobium</td>
-                <td>Nb</td>
-                <td>41</td>
-                <td>92.906</td>
-                <td>8.57</td>
-                <td>2477</td>
-                <td>4744</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>42</td>
-                <td>Molybdenum</td>
-                <td>Mo</td>
-                <td>42</td>
-                <td>95.95</td>
-                <td>10.28</td>
-                <td>2623</td>
-                <td>4639</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>43</td>
-                <td>Technetium</td>
-                <td>Tc</td>
-                <td>43</td>
-                <td>98</td>
-                <td>11.5</td>
-                <td>2157</td>
-                <td>4265</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>44</td>
-                <td>Ruthenium</td>
-                <td>Ru</td>
-                <td>44</td>
-                <td>101.07</td>
-                <td>12.37</td>
-                <td>2334</td>
-                <td>4150</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>45</td>
-                <td>Rhodium</td>
-                <td>Rh</td>
-                <td>45</td>
-                <td>102.91</td>
-                <td>12.41</td>
-                <td>1964</td>
-                <td>3695</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>46</td>
-                <td>Palladium</td>
-                <td>Pd</td>
-                <td>46</td>
-                <td>106.42</td>
-                <td>12.02</td>
-                <td>1555</td>
-                <td>2963</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>47</td>
-                <td>Silver</td>
-                <td>Ag</td>
-                <td>47</td>
-                <td>107.87</td>
-                <td>10.49</td>
-                <td>961.8</td>
-                <td>2162</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>48</td>
-                <td>Cadmium</td>
-                <td>Cd</td>
-                <td>48</td>
-                <td>112.41</td>
-                <td>8.65</td>
-                <td>321.1</td>
-                <td>767</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>49</td>
-                <td>Indium</td>
-                <td>In</td>
-                <td>49</td>
-                <td>114.82</td>
-                <td>7.31</td>
-                <td>156.6</td>
-                <td>2072</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>50</td>
-                <td>Tin</td>
-                <td>Sn</td>
-                <td>50</td>
-                <td>118.71</td>
-                <td>7.31</td>
-                <td>231.9</td>
-                <td>2602</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>51</td>
-                <td>Antimony</td>
-                <td>Sb</td>
-                <td>51</td>
-                <td>121.76</td>
-                <td>6.69</td>
-                <td>630.6</td>
-                <td>1587</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>52</td>
-                <td>Tellurium</td>
-                <td>Te</td>
-                <td>52</td>
-                <td>127.60</td>
-                <td>6.24</td>
-                <td>449.5</td>
-                <td>988</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>53</td>
-                <td>Iodine</td>
-                <td>I</td>
-                <td>53</td>
-                <td>126.90</td>
-                <td>4.93</td>
-                <td>113.7</td>
-                <td>184.3</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>54</td>
-                <td>Xenon</td>
-                <td>Xe</td>
-                <td>54</td>
-                <td>131.29</td>
-                <td>0.0059</td>
-                <td>-111.8</td>
-                <td>-108.1</td>
-                <td>Gas</td>
-            </tr>
-
-            <tr>
-                <td>55</td>
-                <td>Cesium</td>
-                <td>Cs</td>
-                <td>55</td>
-                <td>132.91</td>
-                <td>1.93</td>
-                <td>28.5</td>
-                <td>671</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>56</td>
-                <td>Barium</td>
-                <td>Ba</td>
-                <td>56</td>
-                <td>137.33</td>
-                <td>3.62</td>
-                <td>727</td>
-                <td>1870</td>
-                <td>Solid</td>
-            </tr>
-
-            <tr>
-                <td>57</td>
-                <td>Lanthanum</td>
-                <td>La</td>
-                <td>57</td>
-                <td>138.91</td>
-                <td>6.15</td>
-                <td>920</td>
-                <td>3464</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>58</td>
-                <td>Cerium</td>
-                <td>Ce</td>
-                <td>58</td>
-                <td>140.12</td>
-                <td>6.77</td>
-                <td>798</td>
-                <td>3426</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>59</td>
-                <td>Praseodymium</td>
-                <td>Pr</td>
-                <td>59</td>
-                <td>140.91</td>
-                <td>6.77</td>
-                <td>931</td>
-                <td>3520</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>60</td>
-                <td>Neodymium</td>
-                <td>Nd</td>
-                <td>60</td>
-                <td>144.24</td>
-                <td>7.01</td>
-                <td>1024</td>
-                <td>3074</td>
-                <td>Solid</td>
-            </tr>
-
-            <tr>
-                <td>61</td>
-                <td>Promethium</td>
-                <td>Pm</td>
-                <td>61</td>
-                <td>145</td>
-                <td>7.26</td>
-                <td>1042</td>
-                <td>3000</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>62</td>
-                <td>Samarium</td>
-                <td>Sm</td>
-                <td>62</td>
-                <td>150.36</td>
-                <td>7.52</td>
-                <td>1072</td>
-                <td>1794</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>63</td>
-                <td>Europium</td>
-                <td>Eu</td>
-                <td>63</td>
-                <td>151.96</td>
-                <td>5.24</td>
-                <td>822</td>
-                <td>1597</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>64</td>
-                <td>Gadolinium</td>
-                <td>Gd</td>
-                <td>64</td>
-                <td>157.25</td>
-                <td>7.90</td>
-                <td>1312</td>
-                <td>3000</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>65</td>
-                <td>Terbium</td>
-                <td>Tb</td>
-                <td>65</td>
-                <td>158.93</td>
-                <td>8.23</td>
-                <td>1356</td>
-                <td>3123</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>66</td>
-                <td>Dysprosium</td>
-                <td>Dy</td>
-                <td>66</td>
-                <td>162.50</td>
-                <td>8.55</td>
-                <td>1412</td>
-                <td>2567</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>67</td>
-                <td>Holmium</td>
-                <td>Ho</td>
-                <td>67</td>
-                <td>164.93</td>
-                <td>8.80</td>
-                <td>1474</td>
-                <td>2700</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>68</td>
-                <td>Erbium</td>
-                <td>Er</td>
-                <td>68</td>
-                <td>167.26</td>
-                <td>9.07</td>
-                <td>1529</td>
-                <td>2868</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>69</td>
-                <td>Thulium</td>
-                <td>Tm</td>
-                <td>69</td>
-                <td>168.93</td>
-                <td>9.32</td>
-                <td>1545</td>
-                <td>1950</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>70</td>
-                <td>Ytterbium</td>
-                <td>Yb</td>
-                <td>70</td>
-                <td>173.05</td>
-                <td>6.97</td>
-                <td>824</td>
-                <td>1196</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>71</td>
-                <td>Lutetium</td>
-                <td>Lu</td>
-                <td>71</td>
-                <td>174.97</td>
-                <td>9.84</td>
-                <td>1652</td>
-                <td>3402</td>
-                <td>Solid</td>
-            </tr>
-
-            <tr>
-                <td>72</td>
-                <td>Hafnium</td>
-                <td>Hf</td>
-                <td>72</td>
-                <td>178.49</td>
-                <td>13.31</td>
-                <td>2233</td>
-                <td>4603</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>73</td>
-                <td>Tantalum</td>
-                <td>Ta</td>
-                <td>73</td>
-                <td>180.95</td>
-                <td>16.69</td>
-                <td>3017</td>
-                <td>5458</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>74</td>
-                <td>Tungsten</td>
-                <td>W</td>
-                <td>74</td>
-                <td>183.84</td>
-                <td>19.25</td>
-                <td>3422</td>
-                <td>5555</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>75</td>
-                <td>Rhenium</td>
-                <td>Re</td>
-                <td>75</td>
-                <td>186.21</td>
-                <td>21.02</td>
-                <td>3186</td>
-                <td>5596</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>76</td>
-                <td>Osmium</td>
-                <td>Os</td>
-                <td>76</td>
-                <td>190.23</td>
-                <td>22.59</td>
-                <td>3033</td>
-                <td>5012</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>77</td>
-                <td>Iridium</td>
-                <td>Ir</td>
-                <td>77</td>
-                <td>192.22</td>
-                <td>22.56</td>
-                <td>2446</td>
-                <td>4428</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>78</td>
-                <td>Platinum</td>
-                <td>Pt</td>
-                <td>78</td>
-                <td>195.08</td>
-                <td>21.45</td>
-                <td>1768</td>
-                <td>3825</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>79</td>
-                <td>Gold</td>
-                <td>Au</td>
-                <td>79</td>
-                <td>196.97</td>
-                <td>19.32</td>
-                <td>1064</td>
-                <td>2856</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>80</td>
-                <td>Mercury</td>
-                <td>Hg</td>
-                <td>80</td>
-                <td>200.59</td>
-                <td>13.53</td>
-                <td>-38.8</td>
-                <td>356.7</td>
-                <td>Liquid</td>
-            </tr>
-
-            <tr>
-                <td>81</td>
-                <td>Thallium</td>
-                <td>Tl</td>
-                <td>81</td>
-                <td>204.38</td>
-                <td>11.85</td>
-                <td>304</td>
-                <td>1473</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>82</td>
-                <td>Lead</td>
-                <td>Pb</td>
-                <td>82</td>
-                <td>207.2</td>
-                <td>11.34</td>
-                <td>327.5</td>
-                <td>1749</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>83</td>
-                <td>Bismuth</td>
-                <td>Bi</td>
-                <td>83</td>
-                <td>208.98</td>
-                <td>9.78</td>
-                <td>271.4</td>
-                <td>1564</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>84</td>
-                <td>Polonium</td>
-                <td>Po</td>
-                <td>84</td>
-                <td>209</td>
-                <td>9.20</td>
-                <td>254</td>
-                <td>962</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>85</td>
-                <td>Astatine</td>
-                <td>At</td>
-                <td>85</td>
-                <td>210</td>
-                <td>8.91 - 8.95</td>
-                <td>302</td>
-                <td>337</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>86</td>
-                <td>Radon</td>
-                <td>Rn</td>
-                <td>86</td>
-                <td>222</td>
-                <td>0.00973</td>
-                <td>-71</td>
-                <td>-61.7</td>
-                <td>Gas</td>
-            </tr>
-
-            <tr>
-                <td>87</td>
-                <td>Francium</td>
-                <td>Fr</td>
-                <td>87</td>
-                <td>223</td>
-                <td>1.87</td>
-                <td>27</td>
-                <td>677</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>88</td>
-                <td>Radium</td>
-                <td>Ra</td>
-                <td>88</td>
-                <td>226</td>
-                <td>5.50</td>
-                <td>700</td>
-                <td>1737</td>
-                <td>Solid</td>
-            </tr>
-
-            <tr>
-                <td>89</td>
-                <td>Actinium</td>
-                <td>Ac</td>
-                <td>89</td>
-                <td>227</td>
-                <td>10.07</td>
-                <td>1050</td>
-                <td>3200</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>90</td>
-                <td>Thorium</td>
-                <td>Th</td>
-                <td>90</td>
-                <td>232.04</td>
-                <td>11.72</td>
-                <td>1750</td>
-                <td>4788</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>91</td>
-                <td>Protactinium</td>
-                <td>Pa</td>
-                <td>91</td>
-                <td>231.04</td>
-                <td>15.37</td>
-                <td>1568</td>
-                <td>4027</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>92</td>
-                <td>Uranium</td>
-                <td>U</td>
-                <td>92</td>
-                <td>238.03</td>
-                <td>19.05</td>
-                <td>1132</td>
-                <td>4131</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>93</td>
-                <td>Neptunium</td>
-                <td>Np</td>
-                <td>93</td>
-                <td>237</td>
-                <td>20.45</td>
-                <td>640</td>
-                <td>3902</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>94</td>
-                <td>Plutonium</td>
-                <td>Pu</td>
-                <td>94</td>
-                <td>244</td>
-                <td>19.84</td>
-                <td>639</td>
-                <td>3228</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>95</td>
-                <td>Americium</td>
-                <td>Am</td>
-                <td>95</td>
-                <td>243</td>
-                <td>13.67</td>
-                <td>1176</td>
-                <td>2607</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>96</td>
-                <td>Curium</td>
-                <td>Cm</td>
-                <td>96</td>
-                <td>247</td>
-                <td>13.51</td>
-                <td>1340</td>
-                <td>3110</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>97</td>
-                <td>Berkelium</td>
-                <td>Bk</td>
-                <td>97</td>
-                <td>247</td>
-                <td>14.78</td>
-                <td>986</td>
-                <td>2627</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>98</td>
-                <td>Californium</td>
-                <td>Cf</td>
-                <td>98</td>
-                <td>251</td>
-                <td>15.10</td>
-                <td>900</td>
-                <td>1470</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>99</td>
-                <td>Einsteinium</td>
-                <td>Es</td>
-                <td>99</td>
-                <td>252</td>
-                <td>8.84</td>
-                <td>860</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>100</td>
-                <td>Fermium</td>
-                <td>Fm</td>
-                <td>100</td>
-                <td>257</td>
-                <td>Unknown</td>
-                <td>1527</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-
-            <tr>
-                <td>101</td>
-                <td>Mendelevium</td>
-                <td>Md</td>
-                <td>101</td>
-                <td>258</td>
-                <td>Unknown</td>
-                <td>827</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>102</td>
-                <td>Nobelium</td>
-                <td>No</td>
-                <td>102</td>
-                <td>259</td>
-                <td>Unknown</td>
-                <td>827</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>103</td>
-                <td>Lawrencium</td>
-                <td>Lr</td>
-                <td>103</td>
-                <td>266</td>
-                <td>Unknown</td>
-                <td>1627</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-
-            <tr>
-                <td>104</td>
-                <td>Rutherfordium</td>
-                <td>Rf</td>
-                <td>104</td>
-                <td>267</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>105</td>
-                <td>Dubnium</td>
-                <td>Db</td>
-                <td>105</td>
-                <td>268</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>106</td>
-                <td>Seaborgium</td>
-                <td>Sg</td>
-                <td>106</td>
-                <td>269</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>107</td>
-                <td>Bohrium</td>
-                <td>Bh</td>
-                <td>107</td>
-                <td>270</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>108</td>
-                <td>Hassium</td>
-                <td>Hs</td>
-                <td>108</td>
-                <td>277</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>109</td>
-                <td>Meitnerium</td>
-                <td>Mt</td>
-                <td>109</td>
-                <td>278</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>110</td>
-                <td>Darmstadtium</td>
-                <td>Ds</td>
-                <td>110</td>
-                <td>281</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>111</td>
-                <td>Roentgenium</td>
-                <td>Rg</td>
-                <td>111</td>
-                <td>282</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>112</td>
-                <td>Copernicium</td>
-                <td>Cn</td>
-                <td>112</td>
-                <td>285</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Liquid (predicted)</td>
-            </tr>
-            <tr>
-                <td>113</td>
-                <td>Nihonium</td>
-                <td>Nh</td>
-                <td>113</td>
-                <td>286</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>114</td>
-                <td>Flerovium</td>
-                <td>Fl</td>
-                <td>114</td>
-                <td>289</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>115</td>
-                <td>Moscovium</td>
-                <td>Mc</td>
-                <td>115</td>
-                <td>290</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>116</td>
-                <td>Livermorium</td>
-                <td>Lv</td>
-                <td>116</td>
-                <td>293</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>117</td>
-                <td>Tennessine</td>
-                <td>Ts</td>
-                <td>117</td>
-                <td>294</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Solid</td>
-            </tr>
-            <tr>
-                <td>118</td>
-                <td>Oganesson</td>
-                <td>Og</td>
-                <td>118</td>
-                <td>294</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Unknown</td>
-                <td>Gas (predicted)</td>
-            </tr>
-
-            </tbody>
-    </table>
-    <br /><br /> <br /><br />
-
-    <footer>
-        <p class="copyright">&copy; 2026 Periodic Table of Elements. All rights reserved.</p>
-
-        <p class="author">Made and prepared by Godspower Kenneth</p>
-    </footer>
-
-
+applyFilters();
+</script>
 </body>
-
 </html>
